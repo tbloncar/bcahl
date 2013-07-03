@@ -12,6 +12,17 @@ ruby "2.0.0"
 # Use 12factor for Rails 4 Postgres integration
 gem 'rails_12factor', group: :production
 
+# Use Twitter Bootstrap scaffolding
+gem "twitter-bootstrap-rails"
+
+group :development, :test do
+	# Use rspec for testing
+  gem 'rspec-rails', '~> 2.0'
+
+  # Use sqlite3 for development
+  gem 'sqlite3'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
