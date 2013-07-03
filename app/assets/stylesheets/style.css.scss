@@ -1,0 +1,32 @@
+// ****************************
+// ==| BCAHL Styles
+// ==| Authored by Travis L
+// ****************************
+
+.main-header {
+	background: #222;
+	height: 60px;
+}
+
+.main-logo {
+	font-size: 20px;
+	font-family: 'Ubuntu', sans-serif;
+	color: #fff;
+	display: inline-block;
+	letter-spacing: 1px;
+	margin: 20px 0 0 0;
+	float: left;
+	clear: both;
+}
+
+.main-nav {
+	float: right;
+	margin: 20px 0 0 0;
+}
+
+.main-nav a {
+	font-size: 12px;
+	color: #fff;
+	display: inline-block;
+	margin: 0 0 0 20px;
+}

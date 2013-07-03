@@ -1,10 +1,11 @@
 Bcahl::Application.routes.draw do
-  get "user/new"
-  get "user/create"
-  get "user/show"
-  get "user/update"
-  get "user/edit"
-  get "user/destroy"
+  root "pages#index"
+
+  get "/users/new" => "users#new", as: :new_user
+  post "/users" => "users#create", as: :users
+
+  get "/users/:path" => "users#show", as: :user
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

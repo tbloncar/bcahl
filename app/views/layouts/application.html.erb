@@ -2,12 +2,28 @@
 <html>
 <head>
   <title>BCAHL</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<header class="main-header">
+	<div class="container">
+		<span class="main-logo">BCAHL</span>
+		<nav class="main-nav">
+			<a href="#">Home</a>
+			<a href="#">Teams</a>
+			<a href="#">Schedule</a>
+			<a href="#">Standings</a>
+			<a href="#">About</a>
+			<a href="#">Contact</a>
+		</nav>
+	</div>
+</header>
+<div class="container">
+	<%= yield %>
+</div>
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
