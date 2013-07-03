@@ -1,5 +1,5 @@
-League Management Application for the BCAHL
-===========================================
+BCAHL League Management
+-----------------------
 
 Documentation to come . . .
 
