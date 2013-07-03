@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="page-header span12">
+		<h1>Sign In</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<%= form_tag sessions_url, class: "main-form-type" do %>
+			<div class="form-field">
+				<%= label_tag :email, "Email Address" %>
+				<%= text_field_tag :email, nil, required: true %>
+			</div>
+			<div class="form-field">
+				<%= label_tag :password, "Password" %>
+				<%= password_field_tag :password, nil, required: true %>
+			</div>
+			<div class="form-field">
+				<%= submit_tag "Sign In" %>
+			</div>
+		<% end %>
+	</div>
+</div>

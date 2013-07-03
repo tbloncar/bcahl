@@ -8,22 +8,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header class="main-header">
+	<% if signed_in? %>
+		<header class="admin-header">
+			<div class="container">
+				<nav class="admin-nav-left">
+					<%= link_to "Manage Stats", "#", class: "admin-nav-button admin-nav-button-black" %>
+				</nav>
+				<nav class="admin-nav-right">
+					<span class="admin-nav-right-helper">
+						Currently signed in as
+						<%= link_to current_user.full_name, user_url(current_user.path) %>
+					</span>
+					<%= link_to "Sign Out", session_url, method: "delete", class: "admin-nav-button admin-nav-button-red" %>
+				</nav>
+			</div>
+		</header>
+	<% end %>
+	<header class="main-header">
+		<div class="container">
+			<a class="main-logo" href="/">BCAHL</a>
+			<nav class="main-nav">
+				<a href="#">Home</a>
+				<a href="#">Teams</a>
+				<a href="#">Schedule</a>
+				<a href="#">Standings</a>
+				<a href="#">About</a>
+				<a href="#">Contact</a>
+			</nav>
+		</div>
+	</header>
 	<div class="container">
-		<span class="main-logo">BCAHL</span>
-		<nav class="main-nav">
-			<a href="#">Home</a>
-			<a href="#">Teams</a>
-			<a href="#">Schedule</a>
-			<a href="#">Standings</a>
-			<a href="#">About</a>
-			<a href="#">Contact</a>
-		</nav>
+		<%= yield %>
 	</div>
-</header>
-<div class="container">
-	<%= yield %>
-</div>
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
