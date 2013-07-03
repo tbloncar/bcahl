@@ -1,0 +1,17 @@
+<%= form_for @player, class: "main-form-type" do |f| %>
+	<div class="form-field">
+		<%= f.label :f_name, "First Name" %>
+		<%= f.text_field :f_name, required: true %>
+	</div>
+	<div class="form-field">
+		<%= f.label :l_name, "Last Name" %>
+		<%= f.text_field :l_name, required: true %>
+	</div>
+	<div class="form-field">
+		<%= f.label :email, "Email Address" %>
+		<%= f.email_field :email %>
+	</div>
+	<div class="form-field">
+		<%= f.submit form_action %>
+	</div>
+<% end %>

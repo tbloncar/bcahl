@@ -9,6 +9,15 @@ Bcahl::Application.routes.draw do
   get "/sign-in" => "sessions#new", as: :new_session
   post "/sessions" => "sessions#create", as: :sessions
   delete "/sign-out" => "sessions#destroy", as: :session
+
+  get "/players/new" => "players#new", as: :new_player
+  post "/players" => "players#create", as: :players
+  get "/players" => "players#index"
+  get "/players/:path" => "players#show", as: :player
+  get "/players/:path/edit" => "players#edit", as: :edit_player
+  patch "/players/:path" => "players#update"
+  delete "/players/:path" => "players#destroy"
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
