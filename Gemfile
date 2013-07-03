@@ -6,7 +6,10 @@ gem 'rails', '4.0.0'
 # Use Postgres db for Heroku deployment
 gem 'pg'
 
-# User 12factor for Rails 4 Postgres integration
+# Specify ruby version for Heroku
+ruby "2.0.0"
+
+# Use 12factor for Rails 4 Postgres integration
 gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
