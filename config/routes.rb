@@ -2,7 +2,7 @@ Bcahl::Application.routes.draw do
   get "sessions/new"
   root "pages#index"
 
-  get "/users/new" => "users#new", as: :new_user
+  get "/register" => "users#new", as: :new_user
   post "/users" => "users#create", as: :users
   get "/users/:path" => "users#show", as: :user
 
