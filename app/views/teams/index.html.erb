@@ -1,14 +1,12 @@
 <div class="row">
 	<div class="page-header span12">
-		<h1>Players</h1>
+		<h1>Teams</h1>
 	</div>
 </div>
 <div class="row">
 	<div class="span12">
-		<% @players.each do |player| %>
-			<p>
-				<%= link_to player.full_name, player_url(player.path) %>
-			</p>
+		<% @teams.each do |team| %>
+			<p><%= team.name %></p>
 		<% end %>
 	</div>
 </div>

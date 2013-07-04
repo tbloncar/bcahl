@@ -1,5 +1,5 @@
 Bcahl::Application.routes.draw do
-  get "sessions/new"
+
   root "pages#index"
 
   get "/register" => "users#new", as: :new_user
@@ -18,7 +18,14 @@ Bcahl::Application.routes.draw do
   patch "/players/:path" => "players#update"
   delete "/players/:path" => "players#destroy"
 
-  
+  get "/teams/new" => "teams#new", as: :new_team
+  post "/teams" => "teams#create", as: :teams
+  get "/teams/:path" => "teams#show", as: :team
+  get "/teams" => "teams#index"
+  get "/teams/:path/edit" => "teams#edit", as: :edit_team
+  patch "/teams/:path" => "teams#update"
+  delete "/teams/:path" => "teams#destroy"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,7 @@
 class Player < ActiveRecord::Base
+	has_many :teams, through: :memberships
+	has_many :memberships
+
 	validates :email, uniqueness: true
 	validates :l_name, uniqueness: { scope: :f_name }
 
