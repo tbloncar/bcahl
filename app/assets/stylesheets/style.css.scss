@@ -3,6 +3,9 @@
 // =| Authored by Travis L
 // ****************************
 
+$green: #55AE3A;
+$honey: #FEE5AC;
+
 .main-header {
 	background: #222;
 	height: 60px;
@@ -34,6 +37,41 @@
 	color: #fff;
 	display: inline-block;
 	margin: 0 0 0 20px;
+}
+
+.flash-message {
+	border: 1px solid #777;
+	padding: 2px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	margin: 15px 0 0 0;
+}
+
+.flash-message-success {
+	background: $green;
+	color: #fff;
+}
+
+.flash-message-notice {
+	background: $honey;
+	color: #fff;
+}
+
+.flash-message-inner {
+	padding: 5px 12px;
+	border: 1px dotted #fff;
+	font-size: 12px;
+	margin: 0;
+}
+
+.flash-message-fade {
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+	&:hover {
+		color: #fafafa;
+	}
 }
 
 .page-header h1 {

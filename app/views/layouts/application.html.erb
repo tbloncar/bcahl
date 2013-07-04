@@ -38,6 +38,14 @@
 		</div>
 	</header>
 	<div class="container">
+		<% flash.each do |name, msg| %>
+			<div class="flash-message flash-message-<%= name %>">
+				<p class="flash-message-inner">
+					<%= msg %>
+					<span class="flash-message-fade">&#x2718;</span>
+				</p>
+			</div>
+		<% end %>
 		<%= yield %>
 	</div>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
