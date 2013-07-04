@@ -4,7 +4,10 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span12">
-		<%= render 'form', form_action: "Update Player" %>
+	<div class="span6">
+		<%= render 'form', form_action: player_url(@player.path), form_method: "patch", form_button: "Update Player"  %>
+	</div>
+	<div class="span6">
+		<%= link_to "Delete Player", player_url(@player.path), method: :delete %>
 	</div>
 </div>

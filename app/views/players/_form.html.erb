@@ -1,4 +1,4 @@
-<%= form_for @player, class: "main-form-type" do |f| %>
+<%= form_for @player, url: form_action, method: form_method, class: "main-form-type" do |f| %>
 	<div class="form-field">
 		<%= f.label :f_name, "First Name" %>
 		<%= f.text_field :f_name, required: true %>
@@ -12,6 +12,6 @@
 		<%= f.email_field :email %>
 	</div>
 	<div class="form-field">
-		<%= f.submit form_action %>
+		<%= f.submit form_button %>
 	</div>
 <% end %>

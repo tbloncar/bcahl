@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 	include SessionsHelper
 
-	before_action :set_player, only: [:show, :update]
+	before_action :set_player, only: [:show, :edit, :update, :destroy]
 
 	def new
 		if signed_in?
@@ -31,10 +31,26 @@ class PlayersController < ApplicationController
 	def show
 	end
 
+	def edit
+	end
+
 	def update
+		if @player.update(player_params)
+			flash[:success] = "Player successfully updated."
+			redirect_to player_url(@player.path)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
+		if @player.destroy
+			flash[:success] = "Player successfully deleted."
+			redirect_to root_url
+		else
+			flash[:notice] = "Hm. That didn't work as planned."
+			redirect_to edit_player_url(@player.path)
+		end
 	end
 
 	private
