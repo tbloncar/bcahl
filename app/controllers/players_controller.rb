@@ -25,10 +25,15 @@ class PlayersController < ApplicationController
 	end
 
 	def index
-		@players = Player.all
+		@players = Player.order(:f_name).where("f_name like ? OR l_name like ?", "%#{params[:term]}%", "%#{params[:term]}%")
+		respond_to do |format|
+			format.html
+			format.json { render json: @players.map { |player| player.full_name }}
+		end
 	end
 
 	def show
+		@membership = Membership.new
 	end
 
 	def edit

@@ -26,6 +26,9 @@ Bcahl::Application.routes.draw do
   patch "/teams/:path" => "teams#update"
   delete "/teams/:path" => "teams#destroy"
 
+  post "/memberships" => "memberships#create", as: :memberships
+  delete "/membership/:id" => "memberships#destroy", as: :membership
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

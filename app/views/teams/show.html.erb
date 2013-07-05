@@ -5,6 +5,24 @@
 </div>
 <div class="row">
 	<div class="span12">
-		<%= @team.color %>
+		<table class="team-roster">
+			<thead>
+				<th>Name</th>
+				<th>Email</th>
+			</thead>
+			<tbody>
+				<% @team.players.each do |player| %>
+					<tr>
+						<td><%= player.full_name %></td>
+						<td><%= player.email %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= form_for @membership do |f| %>
+			<div class="form-field">
+				<%= f.text_field :player_id, data: { autocomplete_source: players_path } %>
+			</div>
+		<% end %>
 	</div>
 </div>

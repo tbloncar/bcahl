@@ -6,7 +6,9 @@
 <div class="row">
 	<div class="span12">
 		<% @teams.each do |team| %>
-			<p><%= team.name %></p>
+			<p>
+				<%= link_to team.name, team_url(team.path) %>
+			</p>
 		<% end %>
 	</div>
 </div>
