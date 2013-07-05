@@ -29,6 +29,14 @@ Bcahl::Application.routes.draw do
   post "/memberships" => "memberships#create", as: :memberships
   delete "/membership/:id" => "memberships#destroy", as: :membership
 
+  get "/leagues/new" => "leagues#new", as: :new_league
+  post "/leagues" => "leagues#create", as: :leagues
+  get "/leagues" => "leagues#index"
+  get "/leagues/:path" => "leagues#show", as: :league
+  get "/leagues/:path/edit" => "leagues#edit", as: :edit_league
+  patch "/leagues/:path" => "leagues#update"
+  delete "/leagues/:path" => "leagues#destroy"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
