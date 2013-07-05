@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20130704012158) do
   create_table "players", force: true do |t|
     t.string   "f_name"
     t.string   "l_name"
+    t.string   "full_name"
     t.string   "email"
     t.string   "path"
     t.datetime "created_at"

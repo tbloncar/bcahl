@@ -4,7 +4,7 @@ jQuery(function($) {
 		$('.flash-message').fadeOut('slow');
 	})
 	// autocomplete player selection
-	$('#membership_player_id').autocomplete({
-		source: $('#membership_player_id').data('autocomplete-source')
+	$('#player_name').autocomplete({
+		source: $('#player_name').data('autocomplete-source')
 	})
 });

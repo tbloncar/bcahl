@@ -141,10 +141,23 @@ $honey: #FEE5AC;
 	}
 }
 
+// ****************************
+// =| Team
+// ****************************
 
-
-
-
+.team-roster {
+	width: 100%;
+	border-left: 1px solid #777;
+	border-top: 1px solid #777;
+	thead {
+		background: #eee;
+	}
+	th, td {
+		padding: 5px 10px;
+		border-right: 1px solid #777;
+		border-bottom: 1px solid #777;
+	}
+}
 
 
 

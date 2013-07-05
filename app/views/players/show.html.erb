@@ -8,21 +8,5 @@
 		<p>
 			<%= @player.email %>
 		</p>
-		<%= form_for @membership do |f| %>
-			<div class="form-field">
-				<%= f.label :team_id %>
-				<%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :name) %>
-			</div>
-			<div class="form-field">
-				<%= f.label :captain %>
-				<%= f.check_box :captain %>
-			</div>
-			<div class="form-field">
-				<%= f.hidden_field :player_id, value: @player.id %>
-			</div>
-			<div class="form-field">
-				<%= f.submit "Add to Team" %>
-			</div>
-		<% end %>
 	</div>
 </div>

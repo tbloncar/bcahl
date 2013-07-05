@@ -15,6 +15,7 @@ class PlayersController < ApplicationController
 	def create
 		@player = Player.new(player_params)
 		@player.path = @player.create_url_path
+		@player.full_name = @player.create_full_name
 
 		if @player.save
 			flash[:success] = "New player successfully added."

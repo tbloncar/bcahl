@@ -9,7 +9,7 @@ class Player < ActiveRecord::Base
 		"#{f_name.downcase}-#{l_name.downcase}"
 	end
 
-	def full_name
+	def create_full_name
 		"#{f_name} #{l_name}".titleize
 	end
 end

@@ -3,6 +3,7 @@ class CreatePlayers < ActiveRecord::Migration
     create_table :players do |t|
       t.string :f_name
       t.string :l_name
+      t.string :full_name
       t.string :email
       t.string :path
 

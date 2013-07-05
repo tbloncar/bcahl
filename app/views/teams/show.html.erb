@@ -17,12 +17,16 @@
 						<td><%= player.email %></td>
 					</tr>
 				<% end %>
+				<tr>
+					<td colspan="2">
+						<%= form_tag memberships_url do %>
+							<%= text_field_tag :player_name, nil, data: { autocomplete_source: players_path } %>
+							<%= hidden_field_tag :team_id, @team.id %>
+							<%= submit_tag "Add Player" %>
+						<% end %>
+					</td>
+				</tr>
 			</tbody>
 		</table>
-		<%= form_for @membership do |f| %>
-			<div class="form-field">
-				<%= f.text_field :player_id, data: { autocomplete_source: players_path } %>
-			</div>
-		<% end %>
 	</div>
 </div>
