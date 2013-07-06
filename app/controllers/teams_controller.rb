@@ -27,10 +27,15 @@ class TeamsController < ApplicationController
 
 	def index
 		@teams = Team.all
+		@teams_match = Team.order(:name).where("name like ?", "%#{params[:term]}%")
+		respond_to do |format|
+			format.html
+			format.json { render json: @teams_match.map { |team| team.name }}
+		end
 	end
 
 	def show
-		@membership = Membership.new
+	
 	end
 
 	def edit

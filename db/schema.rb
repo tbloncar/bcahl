@@ -11,19 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130706153503) do
+ActiveRecord::Schema.define(version: 20130706171521) do
 
   create_table "leagues", force: true do |t|
     t.string   "name"
     t.string   "path"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "memberships", force: true do |t|
-    t.integer  "player_id"
-    t.integer  "team_id"
-    t.boolean  "captain",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +26,30 @@ ActiveRecord::Schema.define(version: 20130706153503) do
     t.string   "full_name"
     t.string   "email"
     t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roster_spots", force: true do |t|
+    t.integer  "player_id"
+    t.integer  "roster_id"
+    t.boolean  "captain",    default: false
+    t.integer  "goals",      default: 0
+    t.integer  "assists",    default: 0
+    t.integer  "pim",        default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rosters", force: true do |t|
+    t.integer  "season_id"
+    t.integer  "team_id"
+    t.integer  "wins",          default: 0
+    t.integer  "losses",        default: 0
+    t.integer  "ot_losses",     default: 0
+    t.integer  "so_wins",       default: 0
+    t.integer  "goals_for",     default: 0
+    t.integer  "goals_against", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

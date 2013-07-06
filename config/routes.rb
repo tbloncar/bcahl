@@ -30,8 +30,8 @@ Bcahl::Application.routes.draw do
   patch "/teams/:path" => "teams#update"
   delete "/teams/:path" => "teams#destroy"
 
-  post "/memberships" => "memberships#create", as: :memberships
-  delete "/membership/:id" => "memberships#destroy", as: :membership
+  post "/roster_spots" => "roster_spots#create", as: :roster_spots
+  delete "/roster_spot/:id" => "roster_spot#destroy", as: :roster_spot
 
   get "/leagues/new" => "leagues#new", as: :new_league
   post "/leagues" => "leagues#create", as: :leagues
@@ -48,6 +48,12 @@ Bcahl::Application.routes.draw do
   get "/leagues/:league_path/seasons/:season_path/edit" => "seasons#edit", as: :edit_season
   patch "/leagues/:league_path/seasons/:season_path" => "seasons#update"
   delete "/leagues/:league_path/seasons/:season_path" => "seasons#destroy"
+
+  post "/rosters" => "rosters#create", as: :rosters
+  get "/leagues/:league_path/seasons/:season_path/rosters/:roster_path" => "rosters#show", as: :roster
+  get "/leagues/:league_path/seasons/:season_path/rosters/:roster_path/edit" => "rosters#edit", as: :edit_roster
+  patch "/rosters/:id" => "rosters#update"
+  delete "/rosters/:id" => "rosters#delete"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

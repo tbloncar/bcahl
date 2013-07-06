@@ -1,6 +1,5 @@
 class Team < ActiveRecord::Base
-	has_many :players, through: :memberships
-	has_many :memberships
+	has_many :rosters
 
 	validates :name, uniqueness: true
 	validates :color, presence: true

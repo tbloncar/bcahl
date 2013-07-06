@@ -1,5 +1,7 @@
 class Season < ActiveRecord::Base
 	belongs_to :league
+	has_many :teams, through: :rosters
+	has_many :rosters
 
 	validates :name, uniqueness: { scope: :league_id }
 

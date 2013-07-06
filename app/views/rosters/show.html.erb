@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="page-header span12">
+		<h1><%= @roster.team.name %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<table class="team-roster">
+			<thead>
+				<th>Name</th>
+				<th>Goals</th>
+				<th>Assists</th>
+				<th>Points</th>
+				<th>PIM</th>
+			</thead>
+			<tbody>
+				<% @roster.roster_spots.each do |roster_spot| %>
+					<tr>
+						<td><%= roster_spot.player.full_name %></td>
+						<td><%= roster_spot.goals %></td>
+						<td><%= roster_spot.assists %></td>
+						<td><%= roster_spot.points %></td>
+						<td><%= roster_spot.pim %></td>
+					</tr>
+				<% end %>
+				<tr>
+					<td colspan="5">
+						<%= form_tag roster_spots_url do %>
+							<%= text_field_tag :player_name, nil, data: { autocomplete_source: players_path } %>
+							<%= hidden_field_tag :roster_id, @roster.id %>
+							<%= submit_tag "Add Player to Roster" %>
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

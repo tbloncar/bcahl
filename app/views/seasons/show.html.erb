@@ -5,7 +5,40 @@
 </div>
 <div class="row">
 	<div class="span12">
-		<p>
-		</p>
+		<table class="team-roster">
+			<thead>
+				<th>Team</th>
+				<th>Games Played</th>
+				<th>Wins</th>
+				<th>Losses</th>
+				<th>OT</th>
+				<th>Points</th>
+				<th>GF</th>
+				<th>GA</th>
+			</thead>
+			<tbody>
+				<% @season.rosters.each do |roster| %>
+					<tr>
+						<td><%= link_to roster.team.name, roster_url(roster.season.league.path, roster.season.path, roster.team.path) %></td>
+						<td><%= roster.games_played %></td>
+						<td><%= roster.wins %></td>
+						<td><%= roster.losses %></td>
+						<td><%= roster.ot_losses %></td>
+						<td><%= roster.points %></td>
+						<td><%= roster.goals_for %></td>
+						<td><%= roster.goals_against %></td>
+					</tr>
+				<% end %>
+				<tr>
+					<td colspan="8">
+						<%= form_tag rosters_url do %>
+							<%= text_field_tag :team_name, nil, data: { autocomplete_source: teams_url } %>
+							<%= hidden_field_tag :season_id, @season.id %>
+							<%= submit_tag "Add Roster" %>
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
