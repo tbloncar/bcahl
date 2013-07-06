@@ -1,0 +1,13 @@
+<%= form_for @season, url: form_action, method: form_method, class: "main-form-type" do |f| %>
+	<div class="form-field">
+		<%= f.label :name, "Season Name" %>
+		<%= f.text_field :name, placeholder: "Fall 2013", required: true %>
+	</div>
+	<div class="form-field">
+		<%= f.label :league_id, "League" %>
+		<%= f.collection_select :league_id, League.all, :id, :name, required: true %>
+	</div>
+	<div class="form-field">
+		<%= f.submit form_button %>
+	</div>
+<% end %>

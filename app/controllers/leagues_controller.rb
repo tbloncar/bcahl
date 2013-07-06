@@ -14,7 +14,6 @@ class LeaguesController < ApplicationController
 
 	def create
 		@league = League.new(league_params)
-		@league.path = @league.create_url_path
 
 		if @league.save
 			flash[:success] = "New league successfully added."

@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.path = @user.create_url_path
 
     if @user.save
       flash[:success] = "You've successfully created an account."

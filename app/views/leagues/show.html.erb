@@ -5,5 +5,10 @@
 </div>
 <div class="row">
 	<div class="span12">
+		<% @league.seasons.each do |season| %>
+			<div class="league-season" id="season-<%= season.id %>">
+				<%= link_to season.name, season_url(@league.path, season.path) %>
+			</div>
+		<% end %>
 	</div>
 </div>

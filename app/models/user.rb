@@ -4,8 +4,10 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 	validates :l_name, uniqueness: { scope: :f_name }
 
+	after_validation :create_url_path, only: [ :create, :update ]
+
 	def create_url_path
-		f_name.downcase + l_name.first.downcase
+		self.path = f_name.downcase + l_name.first.downcase
 	end
 
 	def full_name

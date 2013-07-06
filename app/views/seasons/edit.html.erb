@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="page-header span12">
+		<h1>Edit Season: <%= @season.name %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span6">
+		<%= render 'form', form_action: season_url(@season.league.path, @season.path), form_method: "patch", form_button: "Update Season"  %>
+	</div>
+	<div class="span6">
+		<%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete %>
+	</div>
+</div>

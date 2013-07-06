@@ -16,7 +16,6 @@ class TeamsController < ApplicationController
 
 	def create
 		@team = Team.new(team_params)
-		@team.path = @team.create_url_path
 
 		if @team.save
 			flash[:success] = "New team successfully added."
