@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="page-header span12">
+		<h1>Edit Game for <%= @game.season.name_with_league %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<%= render 'form', form_action: games_url, form_method: "patch", form_button: "Update Game", season: @game.season %>
+	</div>
+</div>

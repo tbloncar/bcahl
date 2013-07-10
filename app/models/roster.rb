@@ -13,4 +13,8 @@ class Roster < ActiveRecord::Base
 	def points
 		wins * 2 + ot_losses
 	end
+
+	def team_name
+		team.name
+	end
 end

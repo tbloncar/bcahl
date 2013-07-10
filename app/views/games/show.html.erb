@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="page-header span12">
+		<h1>Game <%= @game.id %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<p><strong>Home Team:</strong> <%= @game.home_roster.team.name %></p>
+		<p><strong>Away Team:</strong> <%= @game.away_roster.team.name %></p>
+	</div>
+</div>

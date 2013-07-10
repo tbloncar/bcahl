@@ -1,0 +1,20 @@
+<%= form_for @game, url: form_action, method: form_method, class: "main-form-type" do |f| %>
+	<div class="form-field">
+		<%= f.label :home_id, "Home Team" %>
+		<%= f.collection_select :home_id, season.rosters, :id, :team_name %>
+	</div>
+	<div class="form-field">
+		<%= f.label :away_id, "Away Team" %>
+		<%= f.collection_select :away_id, season.rosters, :id, :team_name %>
+	</div>
+	<div class="form-field">
+		<%= f.label :date_and_time, "Date and Time" %>
+		<%= f.datetime_select :date_and_time, required: true %>
+	</div>
+	<div class="form-field">
+		<%= f.hidden_field :season_id, value: season.id %>
+	</div>
+	<div class="form-field">
+		<%= f.submit form_button %>
+	</div>
+<% end %>
