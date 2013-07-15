@@ -1,8 +1,8 @@
 class Season < ActiveRecord::Base
 	belongs_to :league
 	has_many :teams, through: :rosters
-	has_many :rosters
-	has_many :games
+	has_many :rosters, dependent: :destroy
+	has_many :games, dependent: :destroy
 
 	validates :name, uniqueness: { scope: :league_id }
 

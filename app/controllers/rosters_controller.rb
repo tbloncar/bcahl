@@ -1,7 +1,7 @@
 class RostersController < ApplicationController
 	include SessionsHelper
 
-	before_action :set_roster, only: [ :show, :edit ]
+	before_action :set_roster, only: [ :show, :edit, :destroy ]
 
 	def create
 		@roster = Roster.new(season_id: params[:season_id])
@@ -11,13 +11,23 @@ class RostersController < ApplicationController
 			flash[:success] = "#{@roster.team.name} successfully added to #{@roster.season.league.name} - #{@roster.season.name}."
 		end
 
-		redirect_to season_url(@roster.season.league.path, @roster.season.path)
+		redirect_to edit_season_url(@roster.season.league.path, @roster.season.path)
 	end
 
 	def show
 	end
 
 	def edit
+	end
+
+	def destroy
+		if @roster.destroy
+			flash[:success] = "Roster successfully removed."
+			redirect_to season_url(@roster.season.league.path, @roster.season.path)
+		else
+			flash[:notice] = "Hm. It looks like something went wrong."
+			redirect_to roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path)
+		end
 	end
 
 	private

@@ -2,7 +2,7 @@ class Roster < ActiveRecord::Base
 	belongs_to :season
 	belongs_to :team
 	has_many :players, through: :roster_spots
-	has_many :roster_spots
+	has_many :roster_spots, dependent: :destroy
 
 	validates :team_id, uniqueness: { scope: :season_id }
 

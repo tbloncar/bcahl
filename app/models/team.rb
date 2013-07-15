@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-	has_many :rosters
+	has_many :rosters, dependent: :destroy
 
 	validates :name, uniqueness: true
 	validates :color, presence: true

@@ -1,5 +1,5 @@
 Bcahl::Application.routes.draw do
-  
+
   root "pages#index"
 
   get "/register" => "users#new", as: :new_user
@@ -27,7 +27,7 @@ Bcahl::Application.routes.draw do
   delete "/teams/:path" => "teams#destroy"
 
   post "/roster_spots" => "roster_spots#create", as: :roster_spots
-  delete "/roster_spot/:id" => "roster_spot#destroy", as: :roster_spot
+  delete "/roster_spots/:id" => "roster_spots#destroy", as: :roster_spot
 
   get "/leagues/new" => "leagues#new", as: :new_league
   post "/leagues" => "leagues#create", as: :leagues
@@ -49,7 +49,7 @@ Bcahl::Application.routes.draw do
   get "/leagues/:league_path/seasons/:season_path/rosters/:roster_path" => "rosters#show", as: :roster
   get "/leagues/:league_path/seasons/:season_path/rosters/:roster_path/edit" => "rosters#edit", as: :edit_roster
   patch "/rosters/:id" => "rosters#update"
-  delete "/rosters/:id" => "rosters#delete"
+  delete "/leagues/:league_path/seasons/:season_path/rosters/:roster_path" => "rosters#destroy"
 
   get "/leagues/:league_path/seasons/:season_path/games/new" => "games#new", as: :new_game
   post "/games" => "games#create", as: :games

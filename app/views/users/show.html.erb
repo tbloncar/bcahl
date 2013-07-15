@@ -4,7 +4,53 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span12">
-		
+	<div class="span12 manage-row-header">
+		<h2>Manage Leagues</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-row-options">
+		<% @leagues.each do |league| %>
+			<a href="<%= edit_league_url(league.path) %>" class="manage-row-option manage-row-edit">
+				<h3><%= league.name %></h3>
+			</a>
+		<% end %>
+		<a href="<%= new_league_url %>" class="manage-row-option manage-row-new">
+			<h3>Add League</h3>
+		</a>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-row-header">
+		<h2>Manage Teams</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-row-options">
+		<% @teams.each do |team| %>
+			<a href="<%= edit_team_url(team.path) %>" class="manage-row-option manage-row-edit">
+				<h3><%= team.name %></h3>
+			</a>
+		<% end %>
+		<a href="<%= new_team_url %>" class="manage-row-option manage-row-new">
+			<h3>Add Team</h3>
+		</a>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-row-header">
+		<h2>Manage Players</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-row-options">
+		<% @players.each do |player| %>
+			<a href="<%= edit_player_url(player.path) %>" class="manage-row-option manage-row-edit">
+				<h3><%= player.full_name %></h3>
+			</a>
+		<% end %>
+		<a href="<%= new_player_url %>" class="manage-row-option manage-row-new">
+			<h3>Add Player</h3>
+		</a>
 	</div>
 </div>

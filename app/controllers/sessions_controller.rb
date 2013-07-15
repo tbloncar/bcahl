@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   	@user = User.find_by_email(params[:email])
   	if @user.authenticate(params[:password])
   		sign_in(@user)
-      redirect_to root_url
+      redirect_to user_url(@user.path)
   	else
   		render 'new'
   	end

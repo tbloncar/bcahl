@@ -1,6 +1,11 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1><%= "#{@season.name} - #{@season.league.name}" %></h1>
+		<% if current_user %>
+			<a href="<%= edit_season_url(@season.league.path, @season.path) %>" class="manage-edit-option">
+				Edit Season
+			</a>
+		<% end %>
 	</div>
 </div>
 <div class="row">
@@ -29,15 +34,6 @@
 						<td><%= roster.goals_against %></td>
 					</tr>
 				<% end %>
-				<tr>
-					<td colspan="8">
-						<%= form_tag rosters_url do %>
-							<%= text_field_tag :team_name, nil, data: { autocomplete_source: teams_url } %>
-							<%= hidden_field_tag :season_id, @season.id %>
-							<%= submit_tag "Add Roster" %>
-						<% end %>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>

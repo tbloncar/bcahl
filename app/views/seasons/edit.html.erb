@@ -1,13 +1,36 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1>Edit Season: <%= @season.name %></h1>
+		<a href="<%= season_url(@season.league.path, @season.path) %>" class="manage-view-option">
+			View Season
+		</a>
 	</div>
 </div>
 <div class="row">
 	<div class="span6">
 		<%= render 'form', form_action: season_url(@season.league.path, @season.path), form_method: "patch", form_button: "Update Season"  %>
+		<%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete %>
 	</div>
 	<div class="span6">
-		<%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete %>
+		<div class="manage-row-header">
+			<h2>Manage Rosters</h2>
+		</div>
+		<div class="manage-row-options">
+			<% @season.rosters.each do |roster| %>
+				<a href="<%= edit_roster_url(@season.league.path, @season.path, roster.team.path) %>" class="manage-row-edit manage-row-option">
+					<h3><%= roster.team.name %></h3>
+				</a>
+			<% end %>
+		</div>
+		<div class="manage-row-header">
+			<h2>Add Roster</h2>
+		</div>
+		<div class="manage-row-options">
+			<%= form_tag rosters_url do %>
+				<%= text_field_tag :team_name, nil, data: { autocomplete_source: teams_url } %>
+				<%= hidden_field_tag :season_id, @season.id %>
+				<%= submit_tag "Add Roster" %>
+			<% end %>
+		</div>
 	</div>
 </div>

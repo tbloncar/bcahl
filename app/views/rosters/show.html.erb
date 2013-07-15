@@ -1,6 +1,11 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1><%= @roster.team.name %></h1>
+		<% if current_user %>
+			<a href="<%= edit_roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path) %>" class="manage-edit-option">
+				Edit Roster
+			</a>
+		<% end %>
 	</div>
 </div>
 <div class="row">
@@ -23,15 +28,6 @@
 						<td><%= roster_spot.pim %></td>
 					</tr>
 				<% end %>
-				<tr>
-					<td colspan="5">
-						<%= form_tag roster_spots_url do %>
-							<%= text_field_tag :player_name, nil, data: { autocomplete_source: players_path } %>
-							<%= hidden_field_tag :roster_id, @roster.id %>
-							<%= submit_tag "Add Player to Roster" %>
-						<% end %>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>

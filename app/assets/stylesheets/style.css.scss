@@ -4,7 +4,13 @@
 // ****************************
 
 $green: #55AE3A;
+$lightGreen: #B4EEB4;
 $honey: #FEE5AC;
+$beige: #F5F5DC;
+
+body {
+	font-family: 'Open Sans', Arial, sans-serif;
+}
 
 .main-header {
 	background: #222;
@@ -76,6 +82,8 @@ $honey: #FEE5AC;
 
 .page-header h1 {
 	font-size: 24px;
+	float: left;
+	clear: both;
 }
 
 // ****************************
@@ -138,6 +146,64 @@ $honey: #FEE5AC;
 	color: #fff;
 	&:hover {
 		color: #fff;
+	}
+}
+
+.manage-view-option,
+.manage-edit-option {
+	float: right;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.manage-row-header h2 {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.manage-row-options {
+	width: 100%;
+	background: #eee;
+	border-radius: 5px;
+	padding: 15px;
+	padding-bottom: 0;
+	float: left;
+}
+
+.manage-row-option {
+	width: 200px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	padding: 10px;
+	float: left;
+	margin: 0 15px 15px 0;
+	border-radius: 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.manage-row-option h3 {
+	margin: 0;
+	font-size: 16px;
+	line-height: 16px;
+	color: #222;
+	font-weight: 400;
+}
+
+.manage-row-edit {
+	background: #fff;
+	&:hover {
+		text-decoration: none;
+		background: $beige;
+	}
+}
+
+.manage-row-new {
+	background: $lightGreen;
+	&:hover {
+		text-decoration: none;
+		background: $beige;
 	}
 }
 

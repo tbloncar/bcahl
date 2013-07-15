@@ -6,9 +6,15 @@ class RosterSpotsController < ApplicationController
 		if @roster_spot.player_id && @roster_spot.save
 			flash[:success] = "#{@roster_spot.player.full_name} successfully added to #{@roster_spot.roster.team.name}."
 		end
-		redirect_to roster_url(@roster_spot.roster.season.league.path, @roster_spot.roster.season.path, @roster_spot.roster.team.path)
+		redirect_to edit_roster_url(@roster_spot.roster.season.league.path, @roster_spot.roster.season.path, @roster_spot.roster.team.path)
 	end
 
 	def destroy
+		@roster_spot = RosterSpot.find_by_id(params[:id])
+
+		if @roster_spot.destroy
+			flash[:success] = "Player successfully removed from roster."
+		end
+		redirect_to edit_roster_url(@roster_spot.roster.season.league.path, @roster_spot.roster.season.path, @roster_spot.roster.team.path)
 	end
 end

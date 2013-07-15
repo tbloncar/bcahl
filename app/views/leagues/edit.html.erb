@@ -1,13 +1,29 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1>Edit League: <%= @league.name %></h1>
+		<a href="<%= league_url(@league.path) %>" class="manage-view-option">
+			View League
+		</a>
 	</div>
 </div>
 <div class="row">
 	<div class="span6">
 		<%= render 'form', form_action: league_url(@league.path), form_method: "patch", form_button: "Update League"  %>
+		<%= link_to "Delete League", league_url(@league.path), method: :delete %>
 	</div>
 	<div class="span6">
-		<%= link_to "Delete League", league_url(@league.path), method: :delete %>
+		<div class="manage-row-header">
+			<h2>Manage Seasons</h2>
+		</div>
+		<div class="manage-row-options">
+			<% @league.seasons.each do |season| %>
+				<a href="<%= edit_season_url(@league.path, season.path) %>" class="manage-row-edit manage-row-option">
+					<h3><%= season.name %></h3>
+				</a>
+			<% end %>
+			<a href="<%= new_season_url %>" class="manage-row-edit manage-row-option">
+				<h3>Add Season</h3>
+			</a>
+		</div>
 	</div>
 </div>

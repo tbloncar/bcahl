@@ -1,5 +1,5 @@
 class League < ActiveRecord::Base
-	has_many :seasons
+	has_many :seasons, dependent: :destroy
 
 	validates :name, uniqueness: true
 
