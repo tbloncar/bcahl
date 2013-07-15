@@ -18,7 +18,7 @@ class GamesController < ApplicationController
 
 		if @game.save
 			flash[:success] = "New game successfully added."
-			redirect_to game_url(@game.id)
+			redirect_to edit_season_url(@game.season.league.path, @game.season.path)
 		else
 			@season = Season.find_by_id(game_params[:season_id])
 			render 'new'
@@ -34,7 +34,7 @@ class GamesController < ApplicationController
   def update
   	if @game.update(game_params)
 			flash[:success] = "Game successfully updated."
-			redirect_to game_url(@game.id)
+			redirect_to edit_game_url(@game.id)
 		else
 			render 'edit'
 		end
@@ -43,7 +43,7 @@ class GamesController < ApplicationController
 	def destroy
 		if @game.destroy
 			flash[:success] = "Game successfully deleted."
-			redirect_to root_url
+			redirect_to edit_season_url(@game.season.league.path, @game.season.path)
 		else
 			flash[:notice] = "Hm. That didn't work as planned."
 			redirect_to edit_game_url(@game.id)

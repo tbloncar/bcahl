@@ -11,10 +11,27 @@ class Game < ActiveRecord::Base
 
 	# validates :ot, presence: true
 
+	default_scope -> { order(date_and_time: :asc) }
+
 	def home_and_away_cannot_be_same
     if home_id == away_id
       errors.add(:away_id, "must be different.")
     end
   end
 
+  def date
+  	date_and_time.strftime("%m/%d/%y")
+  end
+
+  def time
+  	date_and_time.strftime("%I:%M %p")
+  end
+
+  def home_team_name
+  	home_roster.team.name
+  end
+
+  def away_team_name
+  	away_roster.team.name
+  end
 end
