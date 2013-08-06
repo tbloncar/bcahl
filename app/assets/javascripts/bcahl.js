@@ -11,4 +11,6 @@ jQuery(function($) {
 	$('#team_name').autocomplete({
 		source: $('#team_name').data('autocomplete-source')
 	});
+	// tabs for season show page
+	$('#season-tabs').tabs();
 });
