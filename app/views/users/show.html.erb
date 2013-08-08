@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1>Hello, <%= @user.full_name %></h1>
+		<p class="page-header-info">Manage leagues, seasons, games, etc. from this page.</p>
 	</div>
 </div>
 <div class="row">
@@ -9,15 +10,19 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-options">
-		<% @leagues.each do |league| %>
-			<a href="<%= edit_league_url(league.path) %>" class="manage-row-option manage-row-edit">
-				<h3><%= league.name %></h3>
-			</a>
-		<% end %>
-		<a href="<%= new_league_url %>" class="manage-row-option manage-row-new">
-			<h3>Add League</h3>
-		</a>
+	<div class="span12 manage-resource-container">
+		<div class="manage-row-options">
+			<% @leagues.each do |league| %>
+				<a href="<%= edit_league_url(league.path) %>" class="manage-row-option manage-row-edit">
+					<h3><%= league.name %></h3>
+					<p class="manage-row-info">12 Teams</p>
+					<p class="manage-row-info">Next Game: 10/12/13</p>
+				</a>
+			<% end %>
+		</div>
+		<div class="manage-resource-tools">
+			<a href="<%= new_league_url %>" class="manage-resource-tool">Add League</a>
+		</div>
 	</div>
 </div>
 <div class="row">
@@ -26,15 +31,19 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-options">
-		<% @teams.each do |team| %>
-			<a href="<%= edit_team_url(team.path) %>" class="manage-row-option manage-row-edit">
-				<h3><%= team.name %></h3>
-			</a>
-		<% end %>
-		<a href="<%= new_team_url %>" class="manage-row-option manage-row-new">
-			<h3>Add Team</h3>
-		</a>
+	<div class="span12 manage-resource-container">
+		<div class="manage-row-options">
+			<% @teams.each do |team| %>
+				<a href="<%= edit_team_url(team.path) %>" class="manage-row-option manage-row-edit">
+					<h3><%= team.name %></h3>
+					<p class="manage-row-info">12 Players</p>
+					<p class="manage-row-info">Captain: Mike Rifken</p>
+				</a>
+			<% end %>
+		</div>
+		<div class="manage-resource-tools">
+			<a href="<%= new_team_url %>" class="manage-resource-tool">Add Team</a>
+		</div>
 	</div>
 </div>
 <div class="row">
@@ -43,14 +52,16 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-options">
-		<% @players.each do |player| %>
-			<a href="<%= edit_player_url(player.path) %>" class="manage-row-option manage-row-edit">
-				<h3><%= player.full_name %></h3>
-			</a>
-		<% end %>
-		<a href="<%= new_player_url %>" class="manage-row-option manage-row-new">
-			<h3>Add Player</h3>
-		</a>
+	<div class="span12 manage-resource-container">
+		<div class="manage-row-options">
+			<% @players.each do |player| %>
+				<a href="<%= edit_player_url(player.path) %>" class="manage-row-option manage-row-edit">
+					<h3><%= player.full_name %></h3>
+				</a>
+			<% end %>
+		</div>
+		<div class="manage-resource-tools">
+			<a href="<%= new_player_url %>" class="manage-resource-tool">Add Player</a>
+		</div>
 	</div>
 </div>

@@ -1,4 +1,11 @@
 <div class="row">
+	<div class="span10 offset1 home-greeting">
+		<p class="home-greeting-content">
+			Welcome to the official website of the Beaver County Adult Hockey League!
+		</p>
+	</div>
+</div>
+<div class="row">
 	<div class="span4 home-third">
 		<h2 class="home-third-header">News</h2>
 		<p class="home-third-content">
@@ -9,17 +16,17 @@
 		<h2 class="home-third-header">Seasons</h2>
 		<p class="home-third-content">
 			Keep up with our current seasons.
-			<% @active_seasons.each do |season| %>
-				<div class="home-third-season">
-					<h3><%= season.name %></h3>
-				</div>
-			<% end %>
 		</p>
+		<% @active_seasons.each do |season| %>
+			<a class="home-third-season" href="<%= season_url(season.league.path, season.path) %>">
+				<h3><%= season.league.name %> - <%= season.name %></h3>
+			</a>
+		<% end %>
 	</div>
 	<div class="span4 home-third">
-		<h2 class="home-third-header">Players</h2>
+		<h2 class="home-third-header">Upcoming Games</h2>
 		<p class="home-third-content">
-			We love our players. Hear their stories.
+			A glance at upcoming games in our league.
 		</p>
 	</div>
 </div>
