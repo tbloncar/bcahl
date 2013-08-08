@@ -9,6 +9,11 @@
 		<h2 class="home-third-header">Seasons</h2>
 		<p class="home-third-content">
 			Keep up with our current seasons.
+			<% @active_seasons.each do |season| %>
+				<div class="home-third-season">
+					<h3><%= season.name %></h3>
+				</div>
+			<% end %>
 		</p>
 	</div>
 	<div class="span4 home-third">

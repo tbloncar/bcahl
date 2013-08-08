@@ -43,6 +43,7 @@ Bcahl::Application.routes.draw do
   get "/leagues/:league_path/seasons/:season_path" => "seasons#show", as: :season
   get "/leagues/:league_path/seasons/:season_path/edit" => "seasons#edit", as: :edit_season
   patch "/leagues/:league_path/seasons/:season_path" => "seasons#update"
+  patch "/leagues/:league_path/seasons/:season_path/activate" => "seasons#activate", as: :activate_season
   delete "/leagues/:league_path/seasons/:season_path" => "seasons#destroy"
 
   post "/rosters" => "rosters#create", as: :rosters

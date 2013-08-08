@@ -8,6 +8,8 @@ class Season < ActiveRecord::Base
 
 	after_validation :create_url_path, on: [ :create, :update ]
 
+	scope :active, -> { where(active: true) }
+
 	def create_url_path
 		self.path = name.downcase.gsub(" ", "-").gsub("'", "")
 	end

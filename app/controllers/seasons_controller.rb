@@ -1,7 +1,7 @@
 class SeasonsController < ApplicationController
 	include SessionsHelper
 
-	before_action :set_season, only: [:show, :edit, :update, :destroy]
+	before_action :set_season, only: [:show, :edit, :update, :activate, :destroy]
 
 	def new
 		if signed_in?
@@ -40,6 +40,16 @@ class SeasonsController < ApplicationController
 			redirect_to season_url(@season.league.path, @season.path)
 		else
 			render 'edit'
+		end
+	end
+
+	def activate
+		@season.active = true
+		if @season.save
+			flash[:success] = "Season successfully activated."
+			redirect_to season_url(@season.league.path, @season.path)
+		else
+			render 'show'
 		end
 	end
 

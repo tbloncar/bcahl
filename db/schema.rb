@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20130710044131) do
     t.string   "name"
     t.string   "path"
     t.integer  "league_id"
+    t.boolean  "active",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

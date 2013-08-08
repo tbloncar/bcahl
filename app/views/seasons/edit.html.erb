@@ -55,6 +55,7 @@
 				<%= submit_tag "Add Roster" %>
 			<% end %>
 		</div>
+		<%= link_to "Activate Season", activate_season_url(@season.league.path, @season.path), method: :patch %>
 		<%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete %>
 	</div>
 </div>

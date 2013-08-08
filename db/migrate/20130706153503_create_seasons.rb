@@ -4,6 +4,7 @@ class CreateSeasons < ActiveRecord::Migration
       t.string :name
       t.string :path
       t.integer :league_id
+      t.boolean :active, default: false
 
       t.timestamps
     end

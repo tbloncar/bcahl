@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@hello = "world"
+  	@active_seasons = Season.active
+  	@players = Player.all
   end
 end
