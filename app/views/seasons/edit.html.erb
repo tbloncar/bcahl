@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="page-header span12">
-		<h1>Edit Season: <%= @season.name %></h1>
+		<h1>Manage Season: <%= @season.league.name %> - <%= @season.name %></h1>
 		<a href="<%= season_url(@season.league.path, @season.path) %>" class="manage-view-option">
 			View Season
 		</a>
@@ -45,14 +45,11 @@
 				</a>
 			<% end %>
 		</div>
-		<div class="manage-row-header">
-			<h2>Add Roster</h2>
-		</div>
-		<div class="manage-row-options">
+		<div class="manage-resource-tools">
 			<%= form_tag rosters_url do %>
-				<%= text_field_tag :team_name, nil, data: { autocomplete_source: teams_url } %>
+				<%= text_field_tag :team_name, nil, placeholder: "Enter Team Name", data: { autocomplete_source: teams_url } %>
 				<%= hidden_field_tag :season_id, @season.id %>
-				<%= submit_tag "Add Roster" %>
+				<%= submit_tag "Add Roster", class: "manage-resource-tool" %>
 			<% end %>
 		</div>
 		<%= link_to "Activate Season", activate_season_url(@season.league.path, @season.path), method: :patch %>

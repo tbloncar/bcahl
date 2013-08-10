@@ -33,6 +33,7 @@ $beige: #F5F5DC;
 body {
 	font-family: 'Open Sans', Arial, sans-serif;
 	border-top: 2px solid #fff;
+	font-size: 12px;
 }
 
 .main-header {
@@ -179,6 +180,22 @@ body {
 	}
 }
 
+::-webkit-input-placeholder {
+   font-size: 12px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   font-size: 12px; 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   font-size: 12px; 
+}
+
+:-ms-input-placeholder {  
+   font-size: 12px; 
+}
+
 // ****************************
 // =| Home
 // ****************************
@@ -311,6 +328,7 @@ body {
 
 .manage-row-options {
 	width: 100%;
+	min-height: 50px;
 	border-radius: 2px;
 	padding: 10px;
 	border: 1px solid #ddd;
@@ -381,6 +399,15 @@ body {
 	border: 1px solid #ddd;
 }
 
+.manage-resource-tools form {
+	margin-bottom: 0;
+	input[type=text] {
+		margin: 0 7px 0 0;
+		padding: 3px 7px;
+		font-size: 12px;
+	}
+}
+
 .manage-resource-tool {
 	font-size: 10px;
 	line-height: 24px;
@@ -424,5 +451,3 @@ body {
 	width: 200px;
 	float: left;
 }
-
-
