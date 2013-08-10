@@ -1,13 +1,14 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1>Edit Roster: <%= @roster.team.name %></h1>
-		<a href="<%= roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path) %>" class="manage-view-option">
-			View Roster
-		</a>
+		<div class="manage-resource-options">
+			<%= link_to "View Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option view-option" %>
+			<%= link_to "Remove Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), method: "delete", class: "manage-resource-option delete-option" %>
+		</div>
 	</div>
 </div>
 <div class="row">
-	<div class="span8">
+	<div class="span12">
 		<table class="team-roster">
 			<thead>
 				<th>Name</th>
@@ -20,19 +21,14 @@
 						<td><%= link_to "Remove Player", roster_spot_url(roster_spot.id), method: "delete" %></td>
 					</tr>
 				<% end %>
-				<tr>
-					<td colspan="5">
-						<%= form_tag roster_spots_url do %>
-							<%= text_field_tag :player_name, nil, data: { autocomplete_source: players_path } %>
-							<%= hidden_field_tag :roster_id, @roster.id %>
-							<%= submit_tag "Add Player to Roster" %>
-						<% end %>
-					</td>
-				</tr>
 			</tbody>
 		</table>
-	</div>
-	<div class="span4">
-		<%= link_to "Remove Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), method: "delete" %>
+		<div class="manage-resource-tools">
+			<%= form_tag roster_spots_url do %>
+				<%= text_field_tag :player_name, nil, data: { autocomplete_source: players_path } %>
+				<%= hidden_field_tag :roster_id, @roster.id %>
+				<%= submit_tag "Add Player to Roster", class: "manage-resource-tool" %>
+			<% end %>
+		</div>
 	</div>
 </div>

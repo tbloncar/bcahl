@@ -9,7 +9,7 @@
 	</div>
 	<div class="form-field">
 		<%= f.label :date_and_time, "Date and Time" %>
-		<%= f.datetime_select :date_and_time, required: true %>
+		<%= f.datetime_select :date_and_time, required: true, ampm: true, start_year: 2013, order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' } %>
 	</div>
 	<div class="form-field">
 		<%= f.hidden_field :season_id, value: season.id %>

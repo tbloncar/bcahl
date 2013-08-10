@@ -284,7 +284,7 @@ body {
 
 .admin-header {
 	height: 50px;
-	background: #555;
+	@include graydient-bg;
 }
 
 .admin-nav-left {
@@ -362,6 +362,7 @@ body {
 }
 
 .view-option,
+.edit-option,
 .deactivate-option {
 	@include graydient-bg;
 	border-color: #ccc;
@@ -494,6 +495,7 @@ body {
 		padding: 5px 10px;
 		border-right: 1px solid #ccc;
 		border-bottom: 1px solid #ccc;
+		text-align: center;
 	}
 }
 
