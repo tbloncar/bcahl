@@ -26,6 +26,32 @@ $beige: #F5F5DC;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-8 */
 }
 
+@mixin green-gradient-bg {
+	background: #cdeb8e; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NkZWI4ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhNWM5NTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #cdeb8e 0%, #a5c956 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeb8e), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #cdeb8e 0%,#a5c956 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #cdeb8e 0%,#a5c956 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 ); /* IE6-8 */
+}
+
+@mixin red-gradient-bg {
+	background: #ea7c7c; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhN2M3YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZDVhNWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #ea7c7c 0%, #ed5a5a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea7c7c), color-stop(100%,#ed5a5a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ea7c7c 0%,#ed5a5a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ea7c7c 0%,#ed5a5a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ea7c7c 0%,#ed5a5a 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ea7c7c 0%,#ed5a5a 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea7c7c', endColorstr='#ed5a5a',GradientType=0 ); /* IE6-8 */
+}
+
 // ****************************
 // =| General
 // ****************************
@@ -80,12 +106,12 @@ body {
 }
 
 .flash-message-success {
-	background: $green;
+	@include green-gradient-bg;
 	color: #fff;
 }
 
 .flash-message-notice {
-	background: $honey;
+	@include graydient-bg;
 	color: #fff;
 }
 
@@ -315,11 +341,40 @@ body {
 	}
 }
 
-.manage-view-option,
-.manage-edit-option {
+.manage-resource-options {
 	float: right;
+	margin-top: -20px;
+}
+
+.manage-resource-option {
 	display: inline-block;
-	margin-top: 20px;
+	padding: 3px 20px;
+	margin-left: 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 24px;
+	font-size: 10px;
+	color: #333;
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+.view-option,
+.deactivate-option {
+	@include graydient-bg;
+	border-color: #ccc;
+}
+
+.activate-option {
+	@include green-gradient-bg;
+	border-color: #97C629;
+}
+
+.delete-option {
+	@include red-gradient-bg;
+	border-color: #CC1212;
 }
 
 .manage-row-header h2 {
@@ -430,15 +485,15 @@ body {
 
 .team-roster {
 	width: 100%;
-	border-left: 1px solid #777;
-	border-top: 1px solid #777;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 	thead {
-		background: #eee;
+		@include graydient-bg;
 	}
 	th, td {
 		padding: 5px 10px;
-		border-right: 1px solid #777;
-		border-bottom: 1px solid #777;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
 	}
 }
 

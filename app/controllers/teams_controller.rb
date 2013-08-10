@@ -19,7 +19,7 @@ class TeamsController < ApplicationController
 
 		if @team.save
 			flash[:success] = "New team successfully added."
-			redirect_to team_url(@team.path)
+			redirect_to user_url(current_user.path)
 		else
 			render 'new'
 		end
