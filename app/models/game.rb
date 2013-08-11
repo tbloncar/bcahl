@@ -34,4 +34,8 @@ class Game < ActiveRecord::Base
   def away_team_name
   	away_roster.team.name
   end
+
+  def print_result
+    "#{home_goals} - #{away_goals}"
+  end
 end

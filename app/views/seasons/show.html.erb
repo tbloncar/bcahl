@@ -1,11 +1,11 @@
 <div class="row">
 	<div class="page-header span12">
-		<h1><%= "#{@season.name} - #{@season.league.name}" %></h1>
-		<% if current_user %>
-			<a href="<%= edit_season_url(@season.league.path, @season.path) %>" class="manage-edit-option">
-				Edit Season
-			</a>
-		<% end %>
+		<h1><%= "#{@season.name_with_league}" %></h1>
+		<div class="manage-resource-options">
+			<% if current_user %>
+				<%= link_to "Edit Season", edit_season_url(@season.league.path, @season.path), class: "manage-resource-option edit-option" %>
+			<% end %>
+		</div>
 	</div>
 </div>
 <div class="row">
@@ -16,7 +16,7 @@
 		    <li class="clickable-tab"><a href="#tabs-2">Schedule</a></li>
 		    <li class="clickable-tab"><a href="#tabs-3">Rosters</a></li>
 		  </ul>
-		  <div id="tabs-1">
+		  <div id="tabs-1" class="season-tab">
 		    <table class="team-roster">
 					<thead>
 						<th>Team</th>
@@ -44,12 +44,39 @@
 					</tbody>
 				</table>
 		  </div>
-		  <div id="tabs-2">
-		    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+		  <div id="tabs-2" class="season-tab">
+		  	<table class="season-schedule team-roster">
+		  		<thead>
+		  			<th>Date</th>
+						<th>Time</th>
+						<th>Home</th>
+						<th>Away</th>
+						<th>Result</th>
+					</thead>
+					<tbody>
+						<% @season.games.each do |game| %>
+							<tr>
+								<td><%= game.date %></td>
+								<td><%= game.time %></td>
+								<td><%= game.home_team_name %></td>
+								<td><%= game.away_team_name %></td>
+								<td><%= game.print_result %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
 		  </div>
-		  <div id="tabs-3">
-		    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-		    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+		  <div id="tabs-3" class="season-tab">
+		  	<% @season.rosters.each do |roster| %>
+		    	<div class="season-roster">
+		    		<h3><%= roster.team_name %></h3>
+		    		<ul>
+		    		<% roster.players.each do |player| %>
+		    			<li><%= player.full_name %></li>
+		    		<% end %>
+		    		</ul>
+		    	</div>
+		    <% end %>
 		  </div>
 		</div>
 	</div>

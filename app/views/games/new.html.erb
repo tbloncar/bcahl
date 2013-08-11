@@ -1,6 +1,9 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1>Add New Game to <%= @season.name_with_league %></h1>
+		<div class="manage-resource-options">
+			<%= link_to "Back to #{@season.name_with_league}", edit_season_url(@season.league.path, @season.path), class: "manage-resource-option edit-option" %>
+		</div>
 	</div>
 </div>
 <div class="row">
