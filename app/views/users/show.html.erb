@@ -1,7 +1,26 @@
 <div class="row">
 	<div class="page-header span12">
-		<h1>Hello, <%= @user.full_name %></h1>
+		<h1>Welcome, <%= @user.full_name %>!</h1>
 		<p class="page-header-info">Manage leagues, seasons, games, etc. from this page.</p>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-row-header">
+		<h2>Manage Active Seasons</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-resource-container">
+		<div class="manage-row-options">
+			<% @active_seasons.each do |season| %>
+				<a href="<%= edit_season_url(season.league.path, season.path) %>" class="manage-row-option manage-row-edit">
+					<h3><%= season.name_with_league %></h3>
+				</a>
+			<% end %>
+		</div>
+		<div class="manage-resource-tools">
+			<a href="<%= new_season_url %>" class="manage-resource-tool">Add Season</a>
+		</div>
 	</div>
 </div>
 <div class="row">

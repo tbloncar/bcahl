@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @leagues = League.all
     @teams = Team.all
     @players = Player.all
+    @active_seasons = Season.active
   end
 
   def update

@@ -1,6 +1,9 @@
 <div class="row">
 	<div class="page-header span12">
 		<h1><%= @roster.team.name %>: <%= @roster.season.league.name %> - <%= @roster.season.name %></h1>
+		<div class="breadcrumbs">
+			<%= link_to @roster.season.name_with_league, season_url(@roster.season.league.path, @roster.season.path) %> > <%= @roster.team_name %>
+		</div>
 		<% if current_user %>
 			<div class="manage-resource-options">
 				<%= link_to "Edit Roster", edit_roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option edit-option" %>
