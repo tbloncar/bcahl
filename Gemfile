@@ -15,6 +15,15 @@ gem 'rails_12factor', group: :production
 # Use Twitter Bootstrap scaffolding
 gem "twitter-bootstrap-rails"
 
+# Use Paperclip for image uploads
+gem 'paperclip'
+
+# Use jQuery Masonry
+gem 'masonry-rails'
+
+# Use LazyLoad JS
+# gem "lazyload-rails"
+
 group :development, :test do
 	# Use rspec for testing
   gem 'rspec-rails', '~> 2.0'
@@ -43,6 +52,9 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+
+# Ensure Turbolinks works with .ready()
+gem 'jquery-turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

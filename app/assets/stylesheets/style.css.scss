@@ -153,7 +153,9 @@ body {
 	padding-top: 10px;
 }
 
-.form-field label, .form-field input {
+.form-field label,
+.form-field input,
+.form-field textarea {
 	font-size: 12px;
 }
 
@@ -553,4 +555,33 @@ body {
 			border-bottom: 1px solid #eee;
 		}
 	}
+}
+
+// ****************************
+// =| Photos
+// ****************************
+
+.photos-container {
+	position: relative;
+}
+
+.photo-container {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.photo-container img {
+	width: 280px;
+	margin-bottom: 5px;
+}
+
+.latest-photos {
+	margin-bottom: 20px;
+}
+
+.latest-photos img {
+	width: 19.9%;
+	height: 170px;
+	border: 1px solid #333;
+	margin-left: -3px;
 }

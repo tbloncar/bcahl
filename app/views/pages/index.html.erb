@@ -6,6 +6,13 @@
 	</div>
 </div>
 <div class="row">
+	<div class="span12 latest-photos">
+		<% @photos.each do |photo| %>
+			<%= image_tag photo.photo.url(:medium) %>
+		<% end %>
+	</div>
+</div>
+<div class="row">
 	<div class="span4 home-third">
 		<h2 class="home-third-header">News</h2>
 		<p class="home-third-content">

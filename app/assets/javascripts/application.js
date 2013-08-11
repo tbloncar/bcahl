@@ -14,6 +14,9 @@
 //= require jquery.ui.tabs
 //= require jquery.ui.autocomplete
 //= require jquery_ujs
+//= require masonry/jquery.imagesloaded.min
+//= require masonry/jquery.masonry
+//= require jquery.turbolinks
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .

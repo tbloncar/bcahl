@@ -13,4 +13,10 @@ jQuery(function($) {
 	});
 	// tabs for season show page
 	$('#season-tabs').tabs();
+	// jquery masonry for photos
+	$('.photos-container').masonry({
+	  columnWidth: 280,
+	  itemSelector: '.photo-container',
+	  gutterWidth: 16
+	});
 });

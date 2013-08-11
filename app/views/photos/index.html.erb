@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="page-header span12">
+		<h1>Photos from the BCAHL</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 photos-container">
+		<% @photos.each do |photo| %>
+			<div class="photo-container">
+				<%= image_tag photo.photo.url(:medium) %>
+				<div class="photo-description">
+					<p><%= photo.description %></p>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
