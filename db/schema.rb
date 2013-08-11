@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20130710044131) do
     t.integer  "team_id"
     t.integer  "wins",          default: 0
     t.integer  "losses",        default: 0
+    t.integer  "points",        default: 0
     t.integer  "ot_losses",     default: 0
     t.integer  "so_wins",       default: 0
     t.integer  "goals_for",     default: 0

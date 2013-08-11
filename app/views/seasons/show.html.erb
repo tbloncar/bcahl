@@ -29,7 +29,7 @@
 						<th>GA</th>
 					</thead>
 					<tbody>
-						<% @season.rosters.each do |roster| %>
+						<% @season.rosters.standings.each do |roster| %>
 							<tr>
 								<td><%= link_to roster.team.name, roster_url(roster.season.league.path, roster.season.path, roster.team.path) %></td>
 								<td><%= roster.games_played %></td>

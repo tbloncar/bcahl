@@ -3,7 +3,7 @@
 <head>
   <title>BCAHL</title>
   <meta name="robots" content="noindex,nofollow">
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Allan' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -13,17 +13,14 @@
 		<header class="admin-header">
 			<div class="container">
 				<nav class="admin-nav-left">
-					<%= link_to "Add Player", new_player_url, class: "admin-nav-button admin-nav-button-black" %>
-					<%= link_to "Add Team", new_team_url, class: "admin-nav-button admin-nav-button-black" %>
-					<%= link_to "Add League", new_league_url, class: "admin-nav-button admin-nav-button-black" %>
-					<%= link_to "Add Season", new_season_url, class: "admin-nav-button admin-nav-button-black" %>
+					<%= link_to "Add Player", new_player_url, class: "manage-resource-tool" %>
+					<%= link_to "Add Team", new_team_url, class: "manage-resource-tool" %>
+					<%= link_to "Add League", new_league_url, class: "manage-resource-tool" %>
+					<%= link_to "Add Season", new_season_url, class: "manage-resource-tool" %>
 				</nav>
 				<nav class="admin-nav-right">
-					<span class="admin-nav-right-helper">
-						Currently signed in as
-						<%= link_to current_user.full_name, user_url(current_user.path) %>
-					</span>
-					<%= link_to "Sign Out", session_url, method: "delete", class: "admin-nav-button admin-nav-button-red" %>
+					<%= link_to "Dashboard", user_url(current_user.path), class: "manage-resource-tool" %>
+					<%= link_to "Sign Out", session_url, method: "delete", class: "manage-resource-tool" %>
 				</nav>
 			</div>
 		</header>
@@ -50,7 +47,7 @@
 		<% end %>
 		<%= yield %>
 		<footer class="main-footer">
-			<span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %></span>
+			<span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %> • <%= link_to "Admin Login", new_session_url %></span>
 		</footer>
 	</div>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>

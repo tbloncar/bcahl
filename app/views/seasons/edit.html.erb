@@ -24,6 +24,7 @@
 				<th>Home</th>
 				<th>Away</th>
 				<th>Edit</th>
+				<th>Score</th>
 				<th>Remove</th>
 			</thead>
 			<tbody>
@@ -34,6 +35,7 @@
 						<td><%= game.home_team_name %></td>
 						<td><%= game.away_team_name %></td>
 						<td><%= link_to "Edit Game", edit_game_url(game.id) %></td>
+						<td><%= link_to "Score Game", score_game_url(game.id) %></td>
 						<td><%= link_to "Remove Game", game_url(game.id), method: :delete %></td>
 					</tr>
 				<% end %>

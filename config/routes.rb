@@ -58,6 +58,8 @@ Bcahl::Application.routes.draw do
   get "/games/:game_id" => "games#show", as: :game
   get "/games/:game_id/edit" => "games#edit", as: :edit_game
   patch "/games/:game_id" => "games#update"
+  get "/games/:game_id/score" => "games#score", as: :score_game
+  patch "/games/:game_id/update_score" => "games#update_score", as: :update_score
   delete "/games/:game_id" => "games#destroy"
 
   # The priority is based upon order of creation: first created -> highest priority.
