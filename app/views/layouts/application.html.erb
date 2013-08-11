@@ -6,6 +6,7 @@
   <link href='http://fonts.googleapis.com/css?family=Allan' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -50,6 +51,5 @@
 			<span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %> • <%= link_to "Admin Login", new_session_url %></span>
 		</footer>
 	</div>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

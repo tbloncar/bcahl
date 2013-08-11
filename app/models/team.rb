@@ -9,4 +9,8 @@ class Team < ActiveRecord::Base
 	def create_url_path
 		self.path = name.downcase.gsub(" ", "-").gsub("'", "")
 	end
+
+	def has_rosters?
+		self.rosters.count > 1
+	end
 end

@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
 
 		if @player.save
 			flash[:success] = "New player successfully added."
-			redirect_to player_url(@player.path)
+			redirect_to user_url(current_user.path)
 		else
 			render 'new'
 		end

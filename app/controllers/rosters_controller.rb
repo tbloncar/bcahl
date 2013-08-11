@@ -8,7 +8,12 @@ class RostersController < ApplicationController
 		@roster.team_id = Team.find_by(name: params[:team_name]).try(:id)
 
 		if @roster.team_id && @roster.save
-			flash[:success] = "#{@roster.team.name} successfully added to #{@roster.season.league.name} - #{@roster.season.name}."
+			if @roster.team.has_rosters?
+				@roster.team.rosters[-2].players.each do |player|
+					RosterSpot.create(player_id: player.id, roster_id: @roster.id)
+				end
+			end
+			flash[:success] = "#{@roster.team.name} (with #{@roster.players.count} players) successfully added to #{@roster.season.league.name} - #{@roster.season.name}."
 		end
 
 		redirect_to edit_season_url(@roster.season.league.path, @roster.season.path)

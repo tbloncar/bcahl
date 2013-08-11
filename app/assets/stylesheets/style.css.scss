@@ -58,7 +58,6 @@ $beige: #F5F5DC;
 
 body {
 	font-family: 'Open Sans', Arial, sans-serif;
-	border-top: 2px solid #fff;
 	font-size: 12px;
 }
 
@@ -255,20 +254,21 @@ body {
 // ****************************
 
 .admin-header {
-	height: 50px;
+	height: 40px;
 	@include graydient-bg;
 	border-bottom: 2px solid #fff;
+	box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .admin-nav-left {
 	float: left;
 	clear: both;
-	margin: 10px 0 0 0;
+	margin: 7px 0 0 0;
 }
 
 .admin-nav-right {
 	float: right;
-	margin: 10px 0 0 0;
+	margin: 7px 0 0 0;
 }
 
 .manage-resource-options {
@@ -400,14 +400,18 @@ body {
 
 .manage-resource-tool {
 	font-size: 10px;
-	line-height: 24px;
 	display: inline-block;
-	padding: 0 15px;
+	padding: 3px 15px;
+	height: 27px;
 	border-radius: 14px;
 	border: 1px solid #ccc;
 	@include graydient-bg;
 	color: #444;
 	margin-right: 5px;
+	vertical-align: center;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	&:last-of-type {
 		margin-right: 0;
 	}
