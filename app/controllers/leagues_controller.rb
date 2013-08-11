@@ -17,7 +17,7 @@ class LeaguesController < ApplicationController
 
 		if @league.save
 			flash[:success] = "New league successfully added."
-			redirect_to league_url(@league.path)
+			redirect_to user_url(current_user.path)
 		else
 			render 'new'
 		end

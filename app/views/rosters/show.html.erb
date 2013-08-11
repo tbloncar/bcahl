@@ -10,25 +10,55 @@
 </div>
 <div class="row">
 	<div class="span12">
-		<table class="team-roster">
-			<thead>
-				<th>Name</th>
-				<th>Goals</th>
-				<th>Assists</th>
-				<th>Points</th>
-				<th>PIM</th>
-			</thead>
-			<tbody>
-				<% @roster.roster_spots.each do |roster_spot| %>
-					<tr>
-						<td><%= roster_spot.player.full_name %></td>
-						<td><%= roster_spot.goals %></td>
-						<td><%= roster_spot.assists %></td>
-						<td><%= roster_spot.points %></td>
-						<td><%= roster_spot.pim %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
+		<div id="season-tabs">
+			  <ul>
+			    <li class="clickable-tab"><a href="#tabs-1">Schedule</a></li>
+			    <li class="clickable-tab"><a href="#tabs-2">Roster</a></li>
+			  </ul>
+			  <div id="tabs-1" class="season-tab">
+			  	<table class="season-schedule team-roster">
+			  		<thead>
+			  			<th>Date</th>
+							<th>Time</th>
+							<th>Home</th>
+							<th>Away</th>
+							<th>Result</th>
+						</thead>
+						<tbody>
+							<% @roster.games.each do |game| %>
+								<tr>
+									<td><%= game.date %></td>
+									<td><%= game.time %></td>
+									<td><%= game.home_team_name %></td>
+									<td><%= game.away_team_name %></td>
+									<td><%= game.print_result %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+			  </div>
+			  <div id="tabs-2" class="season-tab">
+					<table class="team-roster">
+						<thead>
+							<th>Name</th>
+							<th>Goals</th>
+							<th>Assists</th>
+							<th>Points</th>
+							<th>PIM</th>
+						</thead>
+						<tbody>
+							<% @roster.roster_spots.each do |roster_spot| %>
+								<tr>
+									<td><%= roster_spot.player.full_name %></td>
+									<td><%= roster_spot.goals %></td>
+									<td><%= roster_spot.assists %></td>
+									<td><%= roster_spot.points %></td>
+									<td><%= roster_spot.pim %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+		</div>
 	</div>
 </div>

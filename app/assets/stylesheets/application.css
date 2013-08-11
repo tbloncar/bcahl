@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require jquery.ui.autocomplete
+ *= requere jquery.ui.tabs
  *= require_tree .
  */

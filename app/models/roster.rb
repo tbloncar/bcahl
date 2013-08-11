@@ -3,6 +3,8 @@ class Roster < ActiveRecord::Base
 	belongs_to :team
 	has_many :players, through: :roster_spots
 	has_many :roster_spots, dependent: :destroy
+	has_many :home_games, class_name: "Game", foreign_key: "home_id"
+	has_many :away_games, class_name: "Game", foreign_key: "away_id"
 
 	validates :team_id, uniqueness: { scope: :season_id }
 
@@ -10,6 +12,10 @@ class Roster < ActiveRecord::Base
 
 	def games_played
 		wins + losses + ot_losses
+	end
+
+	def games
+		home_games + away_games
 	end
 
 	def team_name

@@ -38,4 +38,8 @@ class Game < ActiveRecord::Base
   def print_result
     "#{home_goals} - #{away_goals}"
   end
+
+  def scored?
+    home_goals || away_goals
+  end
 end

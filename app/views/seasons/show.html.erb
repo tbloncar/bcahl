@@ -1,6 +1,17 @@
 <div class="row">
 	<div class="page-header span12">
-		<h1><%= "#{@season.name_with_league}" %></h1>
+		<h1>
+			<%= "#{@season.name_with_league}" %>
+			<% if current_user %>
+				<span class="season-status">
+					-<% if @season.active %>
+						<span class="season-active">Active</span>
+					<% else %>
+						<span class="season-inactive">Inactive</span>
+					<% end %>
+				</span>
+			<% end %>
+		</h1>
 		<div class="manage-resource-options">
 			<% if current_user %>
 				<%= link_to "Edit Season", edit_season_url(@season.league.path, @season.path), class: "manage-resource-option edit-option" %>

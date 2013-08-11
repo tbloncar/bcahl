@@ -36,7 +36,7 @@
 						<td><%= game.home_team_name %></td>
 						<td><%= game.away_team_name %></td>
 						<td><%= link_to "Edit Game", edit_game_url(game.id) %></td>
-						<td><%= link_to "Score Game", score_game_url(game.id) %></td>
+						<td><%= link_to (game.scored? ? "Update Score" : "Score Game"), score_game_url(game.id) %></td>
 						<td><%= link_to "Remove Game", game_url(game.id), method: :delete %></td>
 					</tr>
 				<% end %>
