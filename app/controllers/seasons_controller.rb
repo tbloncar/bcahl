@@ -24,7 +24,7 @@ class SeasonsController < ApplicationController
 	end
 
 	def index
-		@seasons = Season.all
+		@seasons = Season.active
 	end
 
 	def show

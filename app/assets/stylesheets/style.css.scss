@@ -159,7 +159,8 @@ body {
 }
 
 .form-field input[type=text],
-.form-field input[type=email] {
+.form-field input[type=email],
+.form-field input[type=password] {
 	border-radius: 0;
 }
 
@@ -175,37 +176,6 @@ body {
 	font-family: 'Open Sans', Arial, sans-serif;
 	border-radius: 2px;
 	@include graydient-bg;
-}
-
-.button {
-	padding: 7px 25px;
-	margin-top: 10px;
-	font-family: 'Open Sans', Arial, sans-serif;
-	border-radius: 2px;
-	font-size: 12px;
-	border-width: 1px;
-	border-style: solid;
-	&:hover {
-		text-decoration: none;
-	}
-}
-
-.button-red {
-	color: #fff;
-	border-color: #cf0404;
-	background: #ff3019; /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmMzAxOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjZjA0MDQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  #ff3019 0%, #cf0404 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-8 */
-	&:hover {
-		color: #fff;
-	}
 }
 
 ::-webkit-input-placeholder {
@@ -471,6 +441,51 @@ body {
 // ****************************
 // =| Season
 // ****************************
+
+.season-summary {
+	width: 24.3%;
+	margin: 0 0.9% 10px 0;
+	border: 1px solid #ddd;
+	float: left;
+	display: block;
+	color: #333;
+	&:hover {
+		text-decoration: none;
+		color: #333;
+		cursor: pointer;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+	}
+	&:nth-of-type(4n) {
+		margin-right: 0;
+	}
+	h3 {
+		@include graydient-bg;
+		font-size: 12px;
+		line-height: 12px;
+		padding: 8px 0;
+		text-align: center;
+		margin: 0;
+
+	}
+}
+
+.season-summary-standings {
+	width: 100%;
+	tr {
+		border-bottom: 1px solid #eee;
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+	td {
+		border-right: 1px solid #eee;
+		padding: 5px;
+		&:last-of-type {
+			border-right: none;
+			text-align: center;
+		}
+	}
+}
 
 
 #season-tabs {
