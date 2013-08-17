@@ -19,7 +19,8 @@ class PlayersController < ApplicationController
 			flash[:success] = "New player successfully added."
 			redirect_to user_url(current_user.path)
 		else
-			render 'new'
+			flash[:notice] = "Hm. That player may already exist in our system."
+			redirect_to new_player_url
 		end
 	end
 

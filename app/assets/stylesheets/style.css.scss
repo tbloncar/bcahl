@@ -113,7 +113,7 @@ body {
 }
 
 .flash-message-notice {
-	@include graydient-bg;
+	@include red-gradient-bg;
 	color: #fff;
 }
 
