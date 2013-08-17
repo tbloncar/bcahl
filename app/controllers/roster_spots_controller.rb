@@ -1,4 +1,5 @@
 class RosterSpotsController < ApplicationController
+
 	def create
 		@roster_spot = RosterSpot.new(roster_id: params[:roster_id])
 		@roster_spot.player_id = Player.find_by(full_name: params[:player_name]).try(:id)
