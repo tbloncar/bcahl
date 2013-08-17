@@ -12,6 +12,6 @@ class Player < ActiveRecord::Base
 	end
 
 	def create_full_name
-		self.full_name = "#{f_name} #{l_name}".titleize
+		self.full_name = "#{f_name} #{l_name}"
 	end
 end
