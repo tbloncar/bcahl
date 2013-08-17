@@ -42,7 +42,7 @@ class PlayersController < ApplicationController
 	def update
 		if @player.update(player_params)
 			flash[:success] = "Player successfully updated."
-			redirect_to player_url(@player.path)
+			redirect_to user_url(current_user.path)
 		else
 			render 'edit'
 		end
