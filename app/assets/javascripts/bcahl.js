@@ -15,7 +15,7 @@ jQuery(function($) {
 	$('#season-tabs').tabs();
 	// jquery masonry for photos
 	$('.photos-container').masonry({
-	  columnWidth: 280,
+	  columnWidth: 300,
 	  itemSelector: '.photo-container',
 	  gutterWidth: 16
 	});

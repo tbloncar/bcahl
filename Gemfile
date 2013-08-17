@@ -12,9 +12,6 @@ ruby "2.0.0"
 # Use 12factor for Rails 4 Postgres integration
 gem 'rails_12factor', group: :production
 
-# Use Twitter Bootstrap scaffolding
-gem "twitter-bootstrap-rails"
-
 # Use Paperclip for image uploads
 gem 'paperclip'
 

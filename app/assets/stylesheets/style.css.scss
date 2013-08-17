@@ -53,8 +53,23 @@ $beige: #F5F5DC;
 }
 
 // ****************************
+// =| Imports
+// ****************************
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+// ****************************
 // =| General
 // ****************************
+
+html {
+	overflow-y: scroll;
+}
 
 body {
 	font-family: 'Open Sans', Arial, sans-serif;
@@ -134,7 +149,7 @@ body {
 }
 
 .page-header {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .page-header h1 {
@@ -216,7 +231,7 @@ body {
 
 .home-greeting-content {
 	margin: 2px 0 0 0;
-	width: 50%;
+	width: 70%;
 	float: left;
 }
 
@@ -233,7 +248,7 @@ body {
 	}
 }
 
-.icon-facebook-sign {
+.fontawesome-facebook-sign {
 	color: #4c66a4;
 }
 
@@ -593,7 +608,7 @@ body {
 }
 
 .photo-container img {
-	width: 280px;
+	width: 300px;
 	margin-bottom: 5px;
 }
 
@@ -603,7 +618,7 @@ body {
 
 .latest-photos img {
 	width: 20.05%;
-	height: 170px;
+	height: 145px;
 	margin-left: -4px;
 	opacity: 0.7;
 	&:first-of-type {

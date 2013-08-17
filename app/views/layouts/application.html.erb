@@ -12,41 +12,53 @@
 	<% if signed_in? %>
 		<header class="admin-header">
 			<div class="container">
-				<nav class="admin-nav-left">
-					<%= link_to "Add Player", new_player_url, class: "manage-resource-tool" %>
-					<%= link_to "Add Team", new_team_url, class: "manage-resource-tool" %>
-					<%= link_to "Add League", new_league_url, class: "manage-resource-tool" %>
-					<%= link_to "Add Season", new_season_url, class: "manage-resource-tool" %>
-					<%= link_to "Add Photo", new_photo_url, class: "manage-resource-tool" %>
-				</nav>
-				<nav class="admin-nav-right">
-					<%= link_to "Dashboard", user_url(current_user.path), class: "manage-resource-tool" %>
-					<%= link_to "Sign Out", session_url, method: "delete", class: "manage-resource-tool" %>
-				</nav>
+				<div class="row">
+					<div class="span12">
+						<nav class="admin-nav-left">
+							<%= link_to "Add Player", new_player_url, class: "manage-resource-tool" %>
+							<%= link_to "Add Team", new_team_url, class: "manage-resource-tool" %>
+							<%= link_to "Add League", new_league_url, class: "manage-resource-tool" %>
+							<%= link_to "Add Season", new_season_url, class: "manage-resource-tool" %>
+							<%= link_to "Add Photo", new_photo_url, class: "manage-resource-tool" %>
+						</nav>
+						<nav class="admin-nav-right">
+							<%= link_to "Dashboard", user_url(current_user.path), class: "manage-resource-tool" %>
+							<%= link_to "Sign Out", session_url, method: "delete", class: "manage-resource-tool" %>
+						</nav>
+					</div>
+				</div>
 			</div>
 		</header>
 	<% end %>
 	<header class="main-header">
 		<div class="container">
-			<a class="main-logo" href="/">Beaver County Adult Hockey League</a>
-			<nav class="main-nav">
-				<%= link_to "Home", root_url %>
-				<%= link_to "Current Seasons", seasons_url %>
-				<%= link_to "Photos", photos_url %>
-				<%= link_to "About", "/about" %>
-				<%= link_to "Contact", "/contact" %>
-			</nav>
+			<div class="row">
+				<div class="span12">
+					<a class="main-logo" href="/">Beaver County Adult Hockey League</a>
+					<nav class="main-nav">
+						<%= link_to "Home", root_url %>
+						<%= link_to "Current Seasons", seasons_url %>
+						<%= link_to "Photos", photos_url %>
+						<%= link_to "About", "/about" %>
+						<%= link_to "Contact", "/contact" %>
+					</nav>
+				</div>
+			</div>
 		</div>
 	</header>
 	<div class="container">
-		<% flash.each do |name, msg| %>
-			<div class="flash-message flash-message-<%= name %>">
-				<p class="flash-message-inner">
-					<%= msg %>
-					<span class="flash-message-fade">&#x2718;</span>
-				</p>
+		<div class="row">
+			<div class="span12">
+				<% flash.each do |name, msg| %>
+					<div class="flash-message flash-message-<%= name %>">
+						<p class="flash-message-inner">
+							<%= msg %>
+							<span class="flash-message-fade">&#x2718;</span>
+						</p>
+					</div>
+				<% end %>
 			</div>
-		<% end %>
+		</div>
 		<%= yield %>
 		<footer class="main-footer">
 			<span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %> • <%= link_to "Admin Login", new_session_url %></span>

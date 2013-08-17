@@ -1,15 +1,17 @@
 <div class="row">
-	<div class="page-header span12">
-		<h1>Manage Season: <%= @season.league.name %> - <%= @season.name %></h1>
-		<div class="manage-resource-options">
-			<%= link_to "Back to #{@season.league.name}", edit_league_url(@season.league.path), class: "manage-resource-option edit-option" %>
-			<%= link_to "View Season", season_url(@season.league.path, @season.path), class: "manage-resource-option view-option" %>
-			<% if @season.active %>
-				<%= link_to "Deactivate Season", deactivate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option deactivate-option" %>
-			<% else %>
-				<%= link_to "Activate Season", activate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option activate-option" %>
-			<% end %>
-			<%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete, class: "manage-resource-option delete-option" %>
+	<div class="span12">
+		<div class="page-header">
+			<h1>Manage Season: <%= @season.league.name %> - <%= @season.name %></h1>
+			<div class="manage-resource-options">
+				<%= link_to "Back to #{@season.league.name}", edit_league_url(@season.league.path), class: "manage-resource-option edit-option" %>
+				<%= link_to "View Season", season_url(@season.league.path, @season.path), class: "manage-resource-option view-option" %>
+				<% if @season.active %>
+					<%= link_to "Deactivate Season", deactivate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option deactivate-option" %>
+				<% else %>
+					<%= link_to "Activate Season", activate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option activate-option" %>
+				<% end %>
+				<%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete, class: "manage-resource-option delete-option" %>
+			</div>
 		</div>
 	</div>
 </div>

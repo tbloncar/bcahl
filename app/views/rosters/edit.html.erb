@@ -1,10 +1,12 @@
 <div class="row">
-	<div class="page-header span12">
-		<h1>Edit Roster: <%= @roster.team.name %></h1>
-		<div class="manage-resource-options">
-			<%= link_to "View Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option view-option" %>
-			<%= link_to "Back to #{@roster.season.name_with_league}", edit_season_url(@roster.season.league.path, @roster.season.path), class: "manage-resource-option edit-option" %>
-			<%= link_to "Remove Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), method: "delete", class: "manage-resource-option delete-option" %>
+	<div class="span12">
+		<div class="page-header">
+			<h1>Edit Roster: <%= @roster.team.name %></h1>
+			<div class="manage-resource-options">
+				<%= link_to "View Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option view-option" %>
+				<%= link_to "Back to #{@roster.season.name_with_league}", edit_season_url(@roster.season.league.path, @roster.season.path), class: "manage-resource-option edit-option" %>
+				<%= link_to "Remove Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), method: "delete", class: "manage-resource-option delete-option" %>
+			</div>
 		</div>
 	</div>
 </div>
