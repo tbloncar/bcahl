@@ -2,7 +2,6 @@ class Player < ActiveRecord::Base
 	has_many :rosters, through: :roster_spots
 	has_many :roster_spots, dependent: :destroy
 
-	validates :email, uniqueness: true
 	validates :l_name, uniqueness: { scope: :f_name }
 
 	after_validation :create_url_path, only: [ :create, :update ]
