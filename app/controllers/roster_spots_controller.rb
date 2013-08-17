@@ -6,6 +6,8 @@ class RosterSpotsController < ApplicationController
 
 		if @roster_spot.player_id && @roster_spot.save
 			flash[:success] = "#{@roster_spot.player.full_name} successfully added to #{@roster_spot.roster.team.name}."
+		else
+			flash[:notice] = "Hm. That player either already exists on this roster or is not in our system."
 		end
 		redirect_to edit_roster_url(@roster_spot.roster.season.league.path, @roster_spot.roster.season.path, @roster_spot.roster.team.path)
 	end
