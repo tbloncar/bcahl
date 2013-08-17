@@ -59,6 +59,7 @@ $beige: #F5F5DC;
 body {
 	font-family: 'Open Sans', Arial, sans-serif;
 	font-size: 12px;
+	background: #fbfbfb;
 }
 
 .main-header {
@@ -524,10 +525,11 @@ body {
 #season-tabs {
 	border: none;
 	font-size: 12px;
+	background: transparent;
 }
 
 #season-tabs ul {
-	background: none;
+	background: transparent;
 	border: none;
 }
 
@@ -547,6 +549,7 @@ body {
 	border: none;
 	border-top: 1px solid #eee;
 	padding-top: 15px;
+	background: transparent;
 }
 
 .season-roster {
@@ -599,9 +602,9 @@ body {
 }
 
 .latest-photos img {
-	width: 20.0%;
+	width: 20.05%;
 	height: 170px;
-	margin-left: -3px;
+	margin-left: -4px;
 	opacity: 0.7;
 	&:first-of-type {
 		margin-left: 0;

@@ -11,6 +11,9 @@ class GamesController < ApplicationController
 			flash[:notice] = "You must be an administrator to access this page."
 			redirect_to root_url
 		end
+
+		@title = "New Game | Beaver County Adult League Hockey"
+		@meta_description = ""
   end
 
   def create
@@ -29,6 +32,7 @@ class GamesController < ApplicationController
   end
 
   def show
+  	@title = "#{@game.home_team_name} vs. #{@game.away_team_name} (#{@game.date_and_time.strftime("%b %d, %Y")}) | BCAHL"
   end
 
   def update

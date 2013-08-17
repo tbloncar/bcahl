@@ -8,6 +8,6 @@
 </div>
 <div class="row">
 	<div class="span12">
-		<%= render 'form', form_action: games_url, form_method: "patch", form_button: "Update Game", season: @game.season %>
+		<%= render 'form', form_action: game_url(@game.id), form_method: "patch", form_button: "Update Game", season: @game.season %>
 	</div>
 </div>

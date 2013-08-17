@@ -18,6 +18,9 @@ gem "twitter-bootstrap-rails"
 # Use Paperclip for image uploads
 gem 'paperclip'
 
+# Use AWS for image storage in production
+gem 'aws-sdk', group: :production
+
 # Use jQuery Masonry
 gem 'masonry-rails'
 
