@@ -7,6 +7,8 @@ class Player < ActiveRecord::Base
 	after_validation :create_url_path, only: [ :create, :update ]
 	after_validation :create_full_name, only: [ :create, :update ]
 
+	default_scope -> { order(full_name: :asc) }
+
 	def create_url_path
 		self.path = "#{f_name.downcase}-#{l_name.downcase}"
 	end
