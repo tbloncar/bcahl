@@ -24,20 +24,25 @@
 		</p>
 	</div>
 	<div class="span4 home-third">
-		<h2 class="home-third-header">Seasons</h2>
-		<p class="home-third-content">
-			Keep up with our current seasons.
-		</p>
-		<% @active_seasons.each do |season| %>
-			<a class="home-third-season" href="<%= season_url(season.league.path, season.path) %>">
-				<h3><%= season.league.name %> - <%= season.name %></h3>
-			</a>
-		<% end %>
-	</div>
-	<div class="span4 home-third">
 		<h2 class="home-third-header">Upcoming Games</h2>
 		<p class="home-third-content">
 			A glance at upcoming games in our league.
 		</p>
+		<% @upcoming_games.each do |game| %>
+			<a class="home-third-list" href="<%= game_url(game.id) %>">
+				<h3><%= game.name_and_date %></h3>
+			</a>
+		<% end %>
+	</div>
+	<div class="span4 home-third">
+		<h2 class="home-third-header">Recent Scores</h2>
+		<p class="home-third-content">
+			Recent scores from around the league.
+		</p>
+		<% @recent_games.each do |game| %>
+			<a class="home-third-list" href="<%= game_url(game.id) %>">
+				<h3><%= game.print_result_with_team_names %></h3>
+			</a>
+		<% end %>
 	</div>
 </div>

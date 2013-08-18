@@ -10,6 +10,8 @@ class Game < ActiveRecord::Base
 	validate :home_and_away_cannot_be_same
 
 	default_scope -> { order(date_and_time: :asc) }
+  scope :upcoming, -> { where("date_and_time > ?", Date.yesterday).limit(4) }
+  scope :recent, -> { where("date_and_time < ? AND (home_goals > ? OR away_goals > ?)" , Date.today, 0, 0).limit(4) }
 
 	def home_and_away_cannot_be_same
     if home_id == away_id
@@ -37,6 +39,10 @@ class Game < ActiveRecord::Base
     "#{home_goals} - #{away_goals}"
   end
 
+  def print_result_with_team_names
+    scored? ? "#{home_team_name} #{home_goals} - #{away_team_name} #{away_goals}" : "N/A"
+  end
+
   def scored?
     home_goals || away_goals
   end
@@ -45,8 +51,16 @@ class Game < ActiveRecord::Base
     "#{home_team_name} vs. #{away_team_name}"
   end
 
-  def calendar_summary
+  def name_and_time
     "#{name} - #{time}"
+  end
+
+  def name_and_date
+    "#{name} - #{date}"
+  end
+
+  def name_and_date_and_time
+    "#{name} on #{date} at #{time}"
   end
 
   def calendar_class

@@ -17,7 +17,7 @@
       <span class="calendar-date"><%= date.day %></span>
       <ul>
         <% events.each do |event| %>
-          <li class="<%= event.calendar_class %>"><%= event.calendar_summary %></li>
+          <li class="<%= event.calendar_class %>"><%= event.name_and_time %></li>
         <% end %>
       </ul>
     <% end %>

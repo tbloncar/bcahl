@@ -257,6 +257,7 @@ body {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.1);
 }
 
 .home-third-header {
@@ -275,10 +276,15 @@ body {
 	padding: 0 10px;
 }
 
-.home-third-season {
+.home-third-list {
 	padding: 10px;
 	display: block;
 	border-top: 1px solid #eee;
+	color: #777;
+	&:hover {
+		text-decoration: none;
+		color: #444;
+	}
 	h3 {
 		font-size: 12px;
 		line-height: 12px;

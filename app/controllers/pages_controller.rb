@@ -1,9 +1,11 @@
 class PagesController < ApplicationController
 
   def index
-  	@active_seasons = Season.active
   	@players = Player.all
   	@photos = Photo.latest
+  	@upcoming_games = Game.upcoming
+  	@recent_games = Game.recent
+
 
   	@title = "BCAHL | Beaver County Adult Hockey League"
   end
