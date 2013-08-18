@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @teams = Team.all
     @players = Player.all
     @active_seasons = Season.active
+    @events = Event.all
 
     @title = "Admin Panel"
   end

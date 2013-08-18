@@ -18,10 +18,15 @@
 </div>
 <div class="row">
 	<div class="span4 home-third">
-		<h2 class="home-third-header">News &amp; Events</h2>
+		<h2 class="home-third-header">Upcoming Events</h2>
 		<p class="home-third-content">
-			The latest news from the BCAHL.
+			Upcoming league events.
 		</p>
+		<% @upcoming_events.each do |event| %>
+			<div class="home-third-list">
+				<h3><%= event.name_and_date %></h3>
+			</div> 
+		<% end %>
 	</div>
 	<div class="span4 home-third">
 		<h2 class="home-third-header">Upcoming Games</h2>

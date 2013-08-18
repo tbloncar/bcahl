@@ -1,0 +1,21 @@
+<%= form_for @event, url: form_action, method: form_method, class: "main-form-type" do |f| %>
+	<div class="form-field">
+		<%= f.label :name, "Name" %>
+		<%= f.text_field :name, required: true %>
+	</div>
+	<div class="form-field">
+		<%= f.label :photo, "Upload Photo" %>
+		<%= f.file_field :photo %>
+	</div>
+	<div class="form-field">
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, required: true %>
+	</div>
+	<div class="form-field">
+		<%= f.label :date_and_time, "Date and Time" %>
+		<%= f.datetime_select :date_and_time, required: true, ampm: true, start_year: 2013, order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' } %>
+	</div>
+	<div class="form-field">
+		<%= f.submit form_button %>
+	</div>
+<% end %>

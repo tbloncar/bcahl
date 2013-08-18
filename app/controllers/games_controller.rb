@@ -14,7 +14,6 @@ class GamesController < ApplicationController
 		end
 
 		@title = "New Game"
-		@meta_description = "Add a new game"
   end
 
   def create

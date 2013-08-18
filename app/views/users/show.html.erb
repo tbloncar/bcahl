@@ -82,3 +82,22 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="span12 manage-row-header">
+		<h2>Manage Events</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-resource-container">
+		<div class="manage-row-options">
+			<% @events.each do |event| %>
+				<a href="<%= edit_event_url(event.path) %>" class="manage-row-option manage-row-edit">
+					<h3><%= event.name_and_date %></h3>
+				</a>
+			<% end %>
+		</div>
+		<div class="manage-resource-tools">
+			<a href="<%= new_event_url %>" class="manage-resource-tool">Add Event</a>
+		</div>
+	</div>
+</div>

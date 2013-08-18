@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="span12">
+		<div class="page-header">
+			<h1>Edit <%= @event.name_and_date %></h1>
+			<div class="manage-resource-options">
+				<%= link_to "Delete Event", event_url(@event.path), method: :delete, class: "manage-resource-option delete-option" %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 content-area">
+		<%= render 'form', form_action: event_url(@event.path), form_method: "patch", form_button: "Update Event" %>
+	</div>
+</div>

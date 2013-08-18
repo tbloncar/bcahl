@@ -63,6 +63,13 @@ Bcahl::Application.routes.draw do
   patch "/games/:game_id/update_score" => "games#update_score", as: :update_score
   delete "/games/:game_id" => "games#destroy"
 
+  get "/events/new" => "events#new", as: :new_event
+  post "/events" => "events#create", as: :events
+  get "/events/:event_path" => "events#show", as: :event
+  get "/events/:event_path/edit" => "events#edit", as: :edit_event
+  patch "/events/:event_path" => "events#update"
+  delete "/events/:event_path" => "events#destroy"
+
   get "/photos/new" => "photos#new", as: :new_photo
   post "/photos" => "photos#create", as: :photos
   get "/photos" => "photos#index"
