@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
-  before_action :redirect_to_under_construction
+  # before_action :redirect_to_under_construction
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
