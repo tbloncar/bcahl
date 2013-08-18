@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   include SessionsHelper
 
-  before_action :set_robots, only: [:new, :edit, :show]
+  before_action :set_robots, only: [:new, :show]
+  before_action :authorize_super_admin, only: [:new, :create, :update, :destroy]
+  before_action :authorize_admin, only: [:show]
 
   def new
     @user = User.new
@@ -35,10 +37,6 @@ class UsersController < ApplicationController
   def update
   end
 
-  def edit
-    @title = "Edit User"
-  end
-
   def destroy
   end
 
@@ -49,5 +47,13 @@ class UsersController < ApplicationController
 
     def set_robots
       @robots = "noindex"
+    end
+
+    def authorize_super_admin
+      redirect_to root_url if current_user.try(:email) != ENV['SUPER_ADMIN_EMAIL'] && Rails.env.production?
+    end
+
+    def authorize_admin
+      redirect_to root_url unless current_user.path == params[:path]
     end
 end
