@@ -493,7 +493,7 @@ body {
 
 .season-summary {
 	width: 24.3%;
-	margin: 0 0.9% 10px 0;
+	margin: 0 0.6% 10px 0;
 	border: 1px solid #ddd;
 	float: left;
 	display: block;
@@ -605,11 +605,22 @@ body {
 .photo-container {
 	position: relative;
 	margin-bottom: 10px;
+	border: 1px solid #888;
 }
 
 .photo-container img {
 	width: 300px;
-	margin-bottom: 5px;
+}
+
+.photo-description {
+	padding: 5px 8px;
+	border-top: 1px solid #555;
+	box-shadow: inset 0 -1px 10px rgba(0,0,0,0.1);
+	text-shadow: 0 -1px 0 #fff;
+	@include graydient-bg;
+	p {
+		margin-bottom: 0;
+	}
 }
 
 .latest-photos {
