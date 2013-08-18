@@ -8,6 +8,11 @@ class PagesController < ApplicationController
   	@title = "BCAHL | Beaver County Adult Hockey League"
   end
 
+  def calendar
+  	@events = Game.all
+  	@date = params[:month] ? Date.parse(params[:month]) : Date.today
+  end
+
   def about
   end
 

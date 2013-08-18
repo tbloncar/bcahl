@@ -2,6 +2,7 @@ Bcahl::Application.routes.draw do
   root "pages#index"
   get "/about" => "pages#about", as: :about
   get "/contact" => "pages#contact", as: :contact
+  get "/calendar" => "pages#calendar", as: :calendar
 
   get "/register" => "users#new", as: :new_user
   post "/users" => "users#create", as: :users

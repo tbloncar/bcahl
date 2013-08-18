@@ -9,8 +9,6 @@ class Game < ActiveRecord::Base
 	validates :away_id, numericality: true
 	validate :home_and_away_cannot_be_same
 
-	# validates :ot, presence: true
-
 	default_scope -> { order(date_and_time: :asc) }
 
 	def home_and_away_cannot_be_same
@@ -41,5 +39,17 @@ class Game < ActiveRecord::Base
 
   def scored?
     home_goals || away_goals
+  end
+
+  def name
+    "#{home_team_name} vs. #{away_team_name}"
+  end
+
+  def calendar_summary
+    "#{name} - #{time}"
+  end
+
+  def calendar_class
+    "calendar-#{self.class.to_s.downcase}"
   end
 end

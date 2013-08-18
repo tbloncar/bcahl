@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="span12">
+    <div class="page-header">
+      <h1>League Calendar</h1>
+    </div>
+  </div>
+</div>
+<div class="calendar">
+  <h2 class="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+    <%=h @date.strftime("%B %Y") %>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+  </h2>
+  <%= calendar_for @events, :year => @date.year, :month => @date.month do |calendar| %>
+    <%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') %>
+    <% calendar.day(:day_method => :date_and_time) do |date, events| %>
+      <span class="calendar-date"><%= date.day %></span>
+      <ul>
+        <% events.each do |event| %>
+          <li class="<%= event.calendar_class %>"><%= event.calendar_summary %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

@@ -18,6 +18,9 @@ gem 'paperclip'
 # Use AWS for image storage in production
 gem 'aws-sdk', group: :production
 
+# Use table_builder for calendar
+gem "watu_table_builder", :require => "table_builder"
+
 # Use jQuery Masonry
 gem 'masonry-rails'
 

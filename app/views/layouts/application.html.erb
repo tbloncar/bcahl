@@ -38,6 +38,7 @@
 					<nav class="main-nav">
 						<%= link_to "Home", root_url %>
 						<%= link_to "Current Seasons", seasons_url %>
+						<%= link_to "League Calendar", calendar_url %>
 						<%= link_to "Photos", photos_url %>
 						<%= link_to "About", "/about" %>
 						<%= link_to "Contact", "/contact" %>
@@ -61,7 +62,7 @@
 		</div>
 		<%= yield %>
 		<footer class="main-footer">
-			<span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %> • <%= link_to "Admin Login", new_session_url %></span>
+			<span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %></span>
 		</footer>
 	</div>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
