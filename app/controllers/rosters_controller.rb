@@ -2,6 +2,7 @@ class RostersController < ApplicationController
 	include SessionsHelper
 
 	before_action :set_roster, only: [ :show, :edit, :destroy ]
+	before_action :set_robots, only: [:edit]
 
 	def create
 		@roster = Roster.new(season_id: params[:season_id])
@@ -20,9 +21,12 @@ class RostersController < ApplicationController
 	end
 
 	def show
+		@title = "#{@roster.team_name_and_season_and_league} | BCAHL"
+		@meta_description = "View scores and statistics: #{@roster.team_name_and_season_and_league}."
 	end
 
 	def edit
+		@title = "Edit Roster"
 	end
 
 	def destroy
@@ -42,4 +46,8 @@ class RostersController < ApplicationController
 			team 			= Team.find_by(path: params[:roster_path])
 			@roster 	= Roster.find_by(team_id: team.id, season_id: season.id)
 		end
+
+		def set_robots
+  		@robots = "noindex"
+  	end
 end

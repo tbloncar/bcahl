@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   include SessionsHelper
 
+  before_action :set_robots, only[:new, :edit, :show]
+
   def new
     @user = User.new
+
+    @title = "Add User"
   end
 
   def create
@@ -23,12 +27,15 @@ class UsersController < ApplicationController
     @teams = Team.all
     @players = Player.all
     @active_seasons = Season.active
+
+    @title = "Admin Panel"
   end
 
   def update
   end
 
   def edit
+    @title = "Edit User"
   end
 
   def destroy
@@ -37,5 +44,9 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:f_name, :l_name, :email, :password, :password_confirmation)
+    end
+
+    def set_robots
+      @robots = "noindex"
     end
 end

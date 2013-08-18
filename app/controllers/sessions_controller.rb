@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
 	include SessionsHelper
 
+  before_action :set_robots, only: [:new]
+
   def new
+    @title = "Sign In"
   end
 
   def create
@@ -24,4 +27,9 @@ class SessionsController < ApplicationController
   		redirect_to root_url
   	end
   end
+
+  private
+    def set_robots
+      @robots = "noindex"
+    end
 end

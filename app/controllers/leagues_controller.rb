@@ -2,6 +2,7 @@ class LeaguesController < ApplicationController
 	include SessionsHelper
 
 	before_action :set_league, only: [:show, :edit, :update, :destroy]
+	before_action :set_robots, only: [:new, :edit]
 
 	def new
 		if signed_in?
@@ -10,6 +11,8 @@ class LeaguesController < ApplicationController
 			flash[:notice] = "You must be an administrator to access this page."
 			redirect_to root_url
 		end
+
+		@title = "New League"
 	end
 
 	def create
@@ -25,10 +28,14 @@ class LeaguesController < ApplicationController
 
 	def index
 		@leagues = League.all
+
+		@title = "Our Leagues | BCAHL"
+		@meta_description = "The Beaver County Adult Hockey League (BCAHL) offers B, D, and E leagues for local players over the age of 18."
 	end
 
 	def show
-
+		@title = "#{@league.name} | BCAHL"
+		@meta_description = "Check out the BCAHL's #{@league.name}!"
 	end
 
 	def edit
@@ -61,4 +68,8 @@ class LeaguesController < ApplicationController
     def set_league
     	@league = League.find_by_path(params[:path])
     end
+
+    def set_robots
+  		@robots = "noindex"
+  	end
 end

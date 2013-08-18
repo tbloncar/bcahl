@@ -2,6 +2,7 @@ class PlayersController < ApplicationController
 	include SessionsHelper
 
 	before_action :set_player, only: [:show, :edit, :update, :destroy]
+	before_action :set_robots, only: [:new, :edit]
 
 	def new
 		if signed_in?
@@ -10,6 +11,8 @@ class PlayersController < ApplicationController
 			flash[:notice] = "You must be an administrator to access this page."
 			redirect_to root_url
 		end
+
+		@title = "New Player"
 	end
 
 	def create
@@ -24,19 +27,13 @@ class PlayersController < ApplicationController
 		end
 	end
 
-	def index
-		@players = Player.order(:f_name).where("full_name like ?", "%#{params[:term]}%")
-		respond_to do |format|
-			format.html
-			format.json { render json: @players.map { |player| player.full_name }}
-		end
-	end
-
 	def show
-		
+		@title = "#{@player.full_name} | Beaver County Adult Hockey League"
+		@meta_description = "See game history and statistics for #{@player.full_name} in the BCAHL."
 	end
 
 	def edit
+		@title = "Edit Player"
 	end
 
 	def update
@@ -66,4 +63,8 @@ class PlayersController < ApplicationController
     def set_player
     	@player = Player.find_by_path(params[:path])
     end
+
+    def set_robots
+  		@robots = "noindex"
+  	end
 end

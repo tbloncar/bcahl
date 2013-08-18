@@ -14,7 +14,6 @@ Bcahl::Application.routes.draw do
 
   get "/players/new" => "players#new", as: :new_player
   post "/players" => "players#create", as: :players
-  get "/players" => "players#index"
   get "/players/:path" => "players#show", as: :player
   get "/players/:path/edit" => "players#edit", as: :edit_player
   patch "/players/:path" => "players#update"

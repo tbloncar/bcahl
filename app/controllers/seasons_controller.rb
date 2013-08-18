@@ -2,6 +2,7 @@ class SeasonsController < ApplicationController
 	include SessionsHelper
 
 	before_action :set_season, only: [:show, :edit, :update, :activate, :destroy, :deactivate]
+	before_action :set_robots, only: [:new, :edit]
 
 	def new
 		if signed_in?
@@ -10,6 +11,8 @@ class SeasonsController < ApplicationController
 			flash[:notice] = "You must be an administrator to access this page."
 			redirect_to root_url
 		end
+
+		@title = "New Season"
 	end
 
 	def create
@@ -25,13 +28,18 @@ class SeasonsController < ApplicationController
 
 	def index
 		@seasons = Season.active
+
+		@title = "Active Seasons | Beaver County Adult Hockey League"
+		@meta_description = "View the active seasons in the Beaver County Adult Hockey League."
 	end
 
 	def show
-
+		@title = "#{@season.name_with_league} | Beaver County Adult Hockey League"
+		@meta_description = "View the schedule, standings, results, and rosters for #{@season.name_with_league}."
 	end
 
 	def edit
+		@title = "Edit Season"
 	end
 
 	def update
@@ -82,4 +90,8 @@ class SeasonsController < ApplicationController
     	league_id = League.find_by(path: params[:league_path]).id
     	@season = Season.find_by(path: params[:season_path], league_id: league_id)
     end
+
+    def set_robots
+  		@robots = "noindex"
+  	end
 end

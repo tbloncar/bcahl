@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
 
 	before_action :set_team, only: [:show, :edit, :update, :destroy]
 	before_action :set_colors, only: [:new, :edit]
+	before_action :set_robots, only: [:new, :edit]
 
 	def new
 		if signed_in?
@@ -12,6 +13,8 @@ class TeamsController < ApplicationController
 			flash[:notice] = "You must be an administrator to access this page."
 			redirect_to root_url
 		end
+
+		@title = "New Team"
 	end
 
 	def create
@@ -32,13 +35,18 @@ class TeamsController < ApplicationController
 			format.html
 			format.json { render json: @teams_match.map { |team| team.name }}
 		end
+
+		@title = "Teams | Beaver County Adult Hockey League"
+		@meta_description = "See the teams that have taken part in the Beaver County Adult Hockey League."
 	end
 
 	def show
-	
+		@title = "#{@team.name} | Beaver County Adult Hockey League"
+		@meta_description = "See activity by the #{@team.name} in the Beaver County Adult Hockey League."
 	end
 
 	def edit
+		@title = "Edit Team"
 	end
 
 	def update
@@ -71,5 +79,9 @@ class TeamsController < ApplicationController
 
     def set_colors
     	@colors = colors_array.map { |color| color.capitalize }
+    end
+
+    def set_robots
+    	@robots = "noindex"
     end
 end

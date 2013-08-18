@@ -2,6 +2,7 @@ class GamesController < ApplicationController
 	include SessionsHelper
 
 	before_action :set_game, only: [:show, :edit, :update, :destroy, :score, :update_score]
+	before_action :set_robots, only: [:new, :edit, :score]
 
   def new
   	if signed_in?
@@ -12,8 +13,8 @@ class GamesController < ApplicationController
 			redirect_to root_url
 		end
 
-		@title = "New Game | Beaver County Adult League Hockey"
-		@meta_description = ""
+		@title = "New Game"
+		@meta_description = "Add a new game"
   end
 
   def create
@@ -29,10 +30,12 @@ class GamesController < ApplicationController
   end
 
   def edit
+  	@title = "Edit Game"
   end
 
   def show
-  	@title = "#{@game.home_team_name} vs. #{@game.away_team_name} (#{@game.date_and_time.strftime("%b %d, %Y")}) | BCAHL"
+  	@title = "#{@game.name_and_date_and_time} | BCAHL"
+  	@meta_description = "#{@game.name_and_date_and_time} - Beaver County Adult Hockey League."
   end
 
   def update
@@ -45,6 +48,7 @@ class GamesController < ApplicationController
 	end
 
 	def score
+		@title = "Score Game"
 	end
 
 	def update_score
@@ -73,5 +77,9 @@ class GamesController < ApplicationController
 
   	def set_game
   		@game = Game.find_by_id(params[:game_id])
+  	end
+
+  	def set_robots
+  		@robots = "noindex"
   	end
 end
