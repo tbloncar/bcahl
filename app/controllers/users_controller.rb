@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include SessionsHelper
 
-  before_action :set_robots, only[:new, :edit, :show]
+  before_action :set_robots, only: [:new, :edit, :show]
 
   def new
     @user = User.new
