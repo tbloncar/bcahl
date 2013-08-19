@@ -27,6 +27,14 @@ class PlayersController < ApplicationController
 		end
 	end
 
+	def index
+		@players = Player.order(:f_name).where("full_name like ?", "%#{params[:term]}%")
+		respond_to do |format|
+			format.html
+			format.json { render json: @players.map { |player| player.full_name }}
+		end
+	end
+
 	def show
 		@title = "#{@player.full_name} | Beaver County Adult Hockey League"
 		@meta_description = "See game history and statistics for #{@player.full_name} in the BCAHL."

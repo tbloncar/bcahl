@@ -13,7 +13,8 @@ Bcahl::Application.routes.draw do
   delete "/sign-out" => "sessions#destroy", as: :session
 
   get "/players/new" => "players#new", as: :new_player
-  post "/players" => "players#create", as: :players
+  get "/players" => "players#index", as: :players
+  post "/players" => "players#create"
   get "/players/:path" => "players#show", as: :player
   get "/players/:path/edit" => "players#edit", as: :edit_player
   patch "/players/:path" => "players#update"
