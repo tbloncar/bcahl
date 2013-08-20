@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
   		sign_in(@user)
       redirect_to user_url(@user.path)
   	else
-  		render 'new'
+      flash[:notice] = "Hm. Something didn't match up."
+  		redirect_to new_session_url
   	end
   end
 

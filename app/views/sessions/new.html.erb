@@ -10,7 +10,7 @@
 		<%= form_tag sessions_url, class: "main-form-type" do %>
 			<div class="form-field">
 				<%= label_tag :email, "Email Address" %>
-				<%= text_field_tag :email, nil, required: true %>
+				<%= email_field_tag :email, nil, required: true %>
 			</div>
 			<div class="form-field">
 				<%= label_tag :password, "Password" %>
