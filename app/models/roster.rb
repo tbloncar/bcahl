@@ -23,7 +23,7 @@ class Roster < ActiveRecord::Base
 	end
 
 	def team_name_and_season_and_league
-		"#{team_name} - #{season.name} - #{season.league}"
+		"#{team_name} - #{season.name} - #{season.league.name}"
 	end
 
 	def add_points(points)
