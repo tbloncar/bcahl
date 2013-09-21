@@ -25,7 +25,7 @@ gem "watu_table_builder", :require => "table_builder"
 gem 'masonry-rails'
 
 # Use puma for app server
-gem 'puma'
+# gem 'puma'
 
 # Use shoulda-matchers for RSpec one-liners
 gem "shoulda-matchers", group: :test
