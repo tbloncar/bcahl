@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818033834) do
+ActiveRecord::Schema.define(version: 20130921191655) do
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20130818033834) do
     t.integer  "goals_against", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ties",          default: 0
   end
 
   create_table "seasons", force: true do |t|

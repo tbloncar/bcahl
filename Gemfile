@@ -24,6 +24,15 @@ gem "watu_table_builder", :require => "table_builder"
 # Use jQuery Masonry
 gem 'masonry-rails'
 
+# Use puma for app server
+gem 'puma'
+
+# Use shoulda-matchers for RSpec one-liners
+gem "shoulda-matchers", group: :test
+
+# Use Factory Girl for factories for testing
+gem "factory_girl_rails", "~> 4.0", group: [:development, :test]
+
 # Use LazyLoad JS
 # gem "lazyload-rails"
 
