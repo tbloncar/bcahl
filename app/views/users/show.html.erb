@@ -101,3 +101,22 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="span12 manage-row-header">
+		<h2>Manage Galleries</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-resource-container">
+		<div class="manage-row-options">
+			<% @galleries.each do |gallery| %>
+				<a href="<%= edit_gallery_url(gallery.id) %>" class="manage-row-option manage-row-edit">
+					<h3><%= gallery.name %></h3>
+				</a>
+			<% end %>
+		</div>
+		<div class="manage-resource-tools">
+			<a href="<%= new_gallery_url %>" class="manage-resource-tool">Add Gallery</a>
+		</div>
+	</div>
+</div>

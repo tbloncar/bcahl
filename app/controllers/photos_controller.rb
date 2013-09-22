@@ -3,40 +3,28 @@ class PhotosController < ApplicationController
 
 	before_action :set_photo, only: [:destroy]
 	before_action :authorize, except: [:index]
-	before_action :set_robots, only: [:new]
-
-	def new
-		@photo = Photo.new
-
-		@title = "New Photo"
-	end
 
 	def create
 		@photo = Photo.new(photo_params)
 
 		if @photo.save
-			redirect_to photos_url
+			flash[:success] = "Photo successfully added."
+			redirect_to edit_gallery_url(@photo.gallery)
 		else
 			render 'new'
 		end
 	end
 
-	def index
-		@photos = Photo.all
-
-		@title = "Photos | Beaver County Adult Hockey League"
-		@meta_description = "See photos from Beaver County Adult Hockey League games and clinics."
-	end
-
 	def destroy
+		gallery = @photo.gallery
 		@photo.destroy ? flash[:success] = "Photo successfully deleted." : flash[:notice] = "Something went awry."
 		
-		redirect_to user_url(current_user.path)
+		redirect_to edit_gallery_url(gallery)
 	end
 
 	private
 		def photo_params
-			params.require(:photo).permit(:photo, :description)
+			params.require(:photo).permit(:photo, :description, :gallery_id)
 		end
 
 		def set_photo
@@ -49,8 +37,4 @@ class PhotosController < ApplicationController
 				redirect_to root_url
 			end
 		end
-
-		def set_robots
-  		@robots = "noindex"
-  	end
 end

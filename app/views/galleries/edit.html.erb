@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="span12">
+		<div class="page-header">
+			<h1>Edit Photo Gallery</h1>
+			<% if current_user %>
+				<div class="manage-resource-options">
+					<%= link_to "View Gallery", gallery_url(@gallery), class: "manage-resource-option view-option" %>
+					<%= link_to "Delete Gallery", gallery_url(@gallery), method: :delete, class: "manage-resource-option delete-option" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span4 content-area">
+		<%= render partial: "form", locals: { action: "Update" } %>
+	</div>
+	<div class="span4 content-area">
+		<h2 class="gallery-subheader">Add Photo</h2>
+		<%= form_for @photo, url: gallery_photos_url(@gallery), class: "main-form-type" do |f| %>
+			<div class="form-field">
+				<%= f.file_field :photo, required: true %>
+			</div>
+			<div class="form-field">
+				<%= f.label :description, "Description" %>
+				<%= f.text_area :description, required: true %>
+			</div>
+			<%= f.hidden_field :gallery_id, value: @gallery.id %>
+			<div class="form-field">
+				<%= f.submit "Add Photo" %>
+			</div>
+		<% end %>
+	</div>
+	<div class="span4 content-area">
+		<h2 class="gallery-subheader">This gallery has <%= @gallery.photos.count %> photo(s).</h2>
+		<div class="gallery-photos-container">
+			<% @gallery.photos.each do |photo| %>
+				<%= image_tag photo.photo.url %>
+			<% end %>
+		</div>
+	</div>
+</div>

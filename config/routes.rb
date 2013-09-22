@@ -71,8 +71,7 @@ Bcahl::Application.routes.draw do
   patch "/events/:event_path" => "events#update"
   delete "/events/:event_path" => "events#destroy"
 
-  get "/photos/new" => "photos#new", as: :new_photo
-  post "/photos" => "photos#create", as: :photos
-  get "/photos" => "photos#index"
-  delete "/photos/:photo_id" => "photos#destroy", as: :photo
+  resources :galleries do
+    resources :photos, except: [:index, :edit, :show, :new]
+  end
 end

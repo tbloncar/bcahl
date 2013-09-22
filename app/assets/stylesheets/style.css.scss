@@ -631,6 +631,14 @@ body {
 	border: 1px solid #888;
 }
 
+a.photo-container {
+	color: #333;
+	&:hover {
+		box-shadow: 0 0 5px rgba(0,0,0,0.3);
+		text-decoration: none;
+	}
+}
+
 .photo-container img {
 	width: 300px;
 }
@@ -657,6 +665,27 @@ body {
 	opacity: 0.7;
 	&:first-of-type {
 		margin-left: 0;
+	}
+}
+
+.gallery-subheader {
+	font-size: 16px;
+}
+
+.gallery-photos-container {
+	padding: 10px 10px 0 10px;
+	border: 1px solid #ccc;
+	float: left;
+}
+
+.gallery-photos-container img {
+	height: 105px;
+	width: 131px;
+	float: left;
+	margin: 0 10px 10px 0;
+	border: 1px solid #777;
+	&:nth-of-type(2n) {
+		margin-right: 0;
 	}
 }
 
