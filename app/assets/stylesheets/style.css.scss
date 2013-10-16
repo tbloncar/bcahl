@@ -106,10 +106,14 @@ body {
 	font-family: 'Allan', sans-serif;
 	color: #fff;
 	display: inline-block;
+	height: 50px;
+	width: 400px;
 	letter-spacing: 1px;
-	margin: 20px 0 0 0;
+	margin: 5px 0 0 0;
+	text-indent: -9999px;
 	float: left;
 	clear: both;
+	background: url('/assets/logo.png') no-repeat;
 	&:hover {
 		color: #fff;
 		text-decoration: none;
