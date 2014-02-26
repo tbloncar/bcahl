@@ -1,20 +1,5 @@
-<div class="row">
-	<div class="span10 offset1 home-greeting">
-		<p class="home-greeting-content">
-			Welcome to the official website of the Beaver County Adult Hockey League!
-		</p>
-		<span class="home-social-media">
-			<a class="fontawesome-facebook-sign" href="https://www.facebook.com/groups/298975226868825/"></a>
-			<a class="fontawesome-twitter-sign" href="https://twitter.com/BCAHL"></a>
-		</span>
-	</div>
-</div>
-<div class="row">
-	<div class="span12 latest-photos">
-		<% @photos.each do |photo| %>
-			<%= image_tag photo.photo.url(:medium) %>
-		<% end %>
-	</div>
+<div class="row home-featured-image-container">
+  <%= image_tag "featured.jpg", class: "home-featured-image" %>
 </div>
 <div class="row">
 	<div class="span4 home-third">
@@ -24,7 +9,7 @@
 		</p>
 		<% @upcoming_events.each do |event| %>
 			<div class="home-third-list">
-				<h3><%= event.name_and_date %></h3>
+				<h3><%= event.name_date_and_time %></h3>
 			</div> 
 		<% end %>
 	</div>
@@ -34,9 +19,9 @@
 			A glance at upcoming games in our league.
 		</p>
 		<% @upcoming_games.each do |game| %>
-			<a class="home-third-list" href="<%= game_url(game.id) %>">
-				<h3><%= game.name_and_date %></h3>
-			</a>
+      <div class="home-third-list">
+				<h3><%= game.name_date_and_time %></h3>
+			</div>
 		<% end %>
 	</div>
 	<div class="span4 home-third">
@@ -45,9 +30,9 @@
 			Recent scores from around the league.
 		</p>
 		<% @recent_games.each do |game| %>
-			<a class="home-third-list" href="<%= game_url(game.id) %>">
-				<h3><%= game.print_result_with_team_names %></h3>
-			</a>
+			<div class="home-third-list">
+				<h3><%= game.score_summary %></h3>
+			</div>
 		<% end %>
 	</div>
 </div>

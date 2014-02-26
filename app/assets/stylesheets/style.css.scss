@@ -1,7 +1,8 @@
-// ****************************
-// =| BCAHL Styles
-// =| Authored by Travis L
-// ****************************
+/*
+*******************************
+| BCAHL Styles
+*******************************
+*/
 
 $green: #55AE3A;
 $lightGreen: #B4EEB4;
@@ -85,19 +86,28 @@ html {
 }
 
 body {
-	font-family: 'Open Sans', Arial, sans-serif;
+	font-family: 'Arial', Arial, sans-serif;
 	font-size: 12px;
-	background: #fbfbfb;
+	background: url('notebook.png') repeat;
 }
 
 .content-area {
 	min-height: 300px;
 }
 
+.ui-container {
+  background: #fcfcfc;
+  border: 1px solid #bbb !important;
+}
+
+.breadcrumbs a {
+  text-shadow: 0 -1px 0 #fff;
+}
+
 .main-header {
 	height: 60px;
-	background: #222;
-	border-bottom: 1px solid #000;
+	background: #fff;
+	border-bottom: 1px solid #bbb;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
@@ -128,10 +138,15 @@ body {
 
 .main-nav a {
 	font-size: 16px;
-	color: #fff;
+	color: #444;
 	display: inline-block;
+  padding-bottom: 18px;
 	margin: 0 0 0 20px;
-	font-family: 'Allan', sans-serif;
+	font-family: 'Abel', Arial, sans-serif;
+  &:hover {
+    text-decoration: none; 
+    border-bottom: 3px solid #bbb;
+  }
 }
 
 .flash-message {
@@ -175,6 +190,7 @@ body {
 
 .page-header h1 {
 	font-size: 16px;
+  text-shadow: 0 -1px 0 #fff;
 	width: 100%;
 	float: left;
 	clear: both;
@@ -211,7 +227,7 @@ body {
 	margin-top: 10px;
 	color: #333;
 	border: 1px solid #bbb;
-	font-family: 'Open Sans', Arial, sans-serif;
+	font-family: 'Arial', Arial, sans-serif;
 	border-radius: 2px;
 	@include graydient-bg;
 }
@@ -273,12 +289,23 @@ body {
 	color: #4c66a4;
 }
 
+.home-featured-image-container {
+  margin: 20px 0;
+}
+
+.home-featured-image {
+  border: 2px solid #fff;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
 .home-third {
-	border: 1px solid #eee;
+	border: 1px solid #ccc;
+  background: #fcfcfc;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  min-height: 200px;
 }
 
 .home-third-header {
@@ -294,21 +321,19 @@ body {
 
 .home-third-content {
 	font-size: 12px;
-	padding: 0 10px;
+	padding: 0 10px 10px 10px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .home-third-list {
 	padding: 10px;
 	display: block;
-	border-top: 1px solid #eee;
-	color: #777;
-	&:hover {
-		text-decoration: none;
-		color: #444;
-	}
+	border-bottom: 1px solid #dedede;
+	color: #444;
 	h3 {
 		font-size: 12px;
-		line-height: 12px;
+		line-height: 16px;
 		margin: 0;
 	}
 }
@@ -385,7 +410,7 @@ body {
 	min-height: 50px;
 	border-radius: 2px;
 	padding: 10px;
-	border: 1px solid #ddd;
+	border: 1px solid #bbb;
 	padding-bottom: 0;
 	float: left;
 	background: #fefefe;
@@ -450,7 +475,7 @@ body {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	border: 1px solid #ddd;
+	border: 1px solid #bbb;
 }
 
 .manage-resource-tools form {
@@ -702,11 +727,13 @@ a.photo-container {
 	width: 100%;
 	border: 1px solid #ccc;
 	border-bottom: none;
+  background: #fcfcfc;
 }
 
 .calendar h2 {
 	font-size: 20px;
 	text-align: center;
+  text-shadow: 0 -1px 0 #fff;
 }
 
 .calendar h2 a {
@@ -735,7 +762,7 @@ a.photo-container {
 .calendar td {
 	width: 14.28657%;
 	padding: 10px;
-	height: 300px;
+	height: 200px;
 	border-right: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	position: relative;

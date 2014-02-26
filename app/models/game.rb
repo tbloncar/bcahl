@@ -1,4 +1,6 @@
 class Game < ActiveRecord::Base
+  include Schedulable
+
 	belongs_to :season
 	belongs_to :home_roster, class_name: 'Roster', foreign_key: 'home_id'
 	belongs_to :away_roster, class_name: 'Roster', foreign_key: 'away_id'
@@ -13,18 +15,33 @@ class Game < ActiveRecord::Base
   scope :upcoming, -> { where("date_and_time > ?", Date.today).limit(4) }
   scope :recent, -> { where("date_and_time < ? AND (home_goals > ? OR away_goals > ?)" , Date.today, 0, 0).limit(4) }
 
-	def home_and_away_cannot_be_same
+  def home_and_away_cannot_be_same
     if home_id == away_id
       errors.add(:away_id, "must be different.")
     end
   end
 
-  def date
-  	date_and_time.strftime("%m/%d/%y")
+  def winner
+    return home_team_name if home_goals == away_goals
+    home_goals > away_goals ? home_team_name : away_team_name
+  end
+  
+  def loser
+    winner == home_team_name ? away_team_name : home_team_name
   end
 
-  def time
-  	date_and_time.strftime("%I:%M %p")
+  def winner_goals
+    return home_goals if home_goals == away_goals
+    home_goals > away_goals ? home_goals : away_goals
+  end
+
+  def loser_goals
+    winner_goals == home_goals ? away_goals : home_goals
+  end
+  
+  def score_summary
+    verb = home_goals == away_goals ? "tied" : "def."
+    "#{winner} (#{winner_goals}) #{verb} #{loser} (#{loser_goals})"
   end
 
   def home_team_name
@@ -37,10 +54,6 @@ class Game < ActiveRecord::Base
 
   def print_result
     "#{home_goals} - #{away_goals}"
-  end
-
-  def print_result_with_team_names
-    scored? ? "#{home_team_name} #{home_goals} - #{away_team_name} #{away_goals}" : "N/A"
   end
 
   def scored?
@@ -59,7 +72,7 @@ class Game < ActiveRecord::Base
     "#{name} - #{date}"
   end
 
-  def name_and_date_and_time
+  def name_date_and_time
     "#{name} on #{date} at #{time}"
   end
 
