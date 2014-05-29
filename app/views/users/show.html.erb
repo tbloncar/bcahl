@@ -6,6 +6,28 @@
 		</div>
 	</div>
 </div>
+
+<div class="row">
+	<div class="span12 manage-row-header">
+		<h2>Manage Bulletin</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12 manage-resource-container">
+    <%= form_for @bulletin do |f| %>
+      <div class="manage-row-options">
+        <%= f.text_field :message, placeholder: "Update home page bulletin...", style: "width: 50%; font-size: 12px;" %>
+        <label class="form-inline-checkbox-container">
+          <%= f.check_box :active, class: "form-inline-checkbox" %> <span>Active</span>
+        </label>
+      </div>
+      <div class="manage-resource-tools">
+        <%= f.submit "Update Bulletin", class: "manage-resource-tool" %>
+      </div>
+    <% end %>
+	</div>
+</div>
+
 <div class="row">
 	<div class="span12 manage-row-header">
 		<h2>Manage Active Seasons</h2>

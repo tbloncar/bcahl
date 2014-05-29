@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def index
+    @bulletin = Bulletin.first
   	@photos = Photo.latest
   	@upcoming_events = Event.upcoming
   	@upcoming_games = Game.upcoming

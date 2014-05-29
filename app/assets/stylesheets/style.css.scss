@@ -232,6 +232,20 @@ body {
 	@include graydient-bg;
 }
 
+.form-inline-checkbox-container {
+  display: inline-block;
+  font-size: 12px;
+
+  input[type=checkbox] {
+    margin-top: -3px; 
+    margin-left: 10px;
+  }
+
+  span {
+    display: inline-block;
+  }
+}
+
 ::-webkit-input-placeholder {
    font-size: 12px;
 }
@@ -252,41 +266,22 @@ body {
 // =| Home
 // ****************************
 
-.home-greeting {
-	padding: 10px;
-	font-size: 12px;
-	border: 1px solid #eee;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	margin-bottom: 20px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	background: #fff;
-	box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-}
+.home-bulletin-container {
+  background: #f8f8f8;
+  border: 3px solid #fff;
+  margin-top: 20px;
+  padding: 10px;
 
-.home-greeting-content {
-	margin: 2px 0 0 0;
-	width: 70%;
-	float: left;
-}
+  p {
+    color: #777;
+    margin-bottom: 0;  
+  }
 
-.home-social-media {
-	float: right;
-	margin-bottom: 0;
-	a {
-		font-size: 25px;
-		margin-left: 5px;
-		&:hover {
-			text-decoration: none;
-			cursor: pointer;
-		}
-	}
-}
-
-.fontawesome-facebook-sign {
-	color: #4c66a4;
+  .date {
+    background: #ddd; 
+    margin-right: 8px;
+    padding: 5px 10px;
+  }
 }
 
 .home-featured-image-container {

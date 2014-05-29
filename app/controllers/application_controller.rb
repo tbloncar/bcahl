@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
+  def authorize_action!
+    redirect_to root_url unless current_user 
+    return
+  end
+
   def redirect_to_under_construction
   	redirect_to "/under-construction" if current_user.try(:email) != ENV['SUPER_ADMIN_EMAIL'] && Rails.env.production?
   end

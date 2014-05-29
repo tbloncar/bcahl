@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_path(params[:path])
+    @bulletin = Bulletin.first
     @leagues = League.all
     @teams = Team.all
     @players = Player.all

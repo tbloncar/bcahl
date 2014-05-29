@@ -12,6 +12,8 @@ Bcahl::Application.routes.draw do
   post "/sessions" => "sessions#create", as: :sessions
   delete "/sign-out" => "sessions#destroy", as: :session
 
+  patch "/bulletins/:id" => "bulletins#update", as: :bulletin
+
   get "/players/new" => "players#new", as: :new_player
   get "/players" => "players#index", as: :players
   post "/players" => "players#create"

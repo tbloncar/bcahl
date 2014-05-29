@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922001954) do
+ActiveRecord::Schema.define(version: 20140529002103) do
+
+  create_table "bulletins", force: true do |t|
+    t.text     "message"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.string   "name"

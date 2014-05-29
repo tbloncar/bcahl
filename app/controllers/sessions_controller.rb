@@ -11,21 +11,22 @@ class SessionsController < ApplicationController
   	@user = User.find_by_email(params[:email])
   	if @user.authenticate(params[:password])
   		sign_in(@user)
-      redirect_to user_url(@user.path)
+      redirect_to user_url(@user.path),
+        success: "You signed in successfully."
   	else
-      flash[:notice] = "Hm. Something didn't match up."
-  		redirect_to new_session_url
+  		redirect_to new_session_url,
+        notice: "Hm. Something didn't match up!"
   	end
   end
 
   def destroy
   	if signed_in?
   		sign_out
-  		flash[:notice] = "You have successfully signed out."
-  		redirect_to root_url
+  		redirect_to root_url,
+        success: "You have successfully signed in!"
   	else
-  		flash[:error] = "You are not signed in."
-  		redirect_to root_url
+  		redirect_to root_url,
+        error: "You are not signed in!"
   	end
   end
 
