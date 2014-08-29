@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
 	belongs_to :home_roster, class_name: 'Roster', foreign_key: 'home_id'
 	belongs_to :away_roster, class_name: 'Roster', foreign_key: 'away_id'
 
-	validates :date_and_time, uniqueness: { scope: :season_id, message: "should not be scheduled at the same time as other games." }
+	validates :date_and_time, presence: true, uniqueness: { scope: :season_id, message: "should not be scheduled at the same time as other games." }
 	validates :season_id, presence: true
 	validates :home_id, numericality: true
 	validates :away_id, numericality: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529002103) do
+ActiveRecord::Schema.define(version: 20140829034003) do
 
   create_table "bulletins", force: true do |t|
     t.text     "message"
@@ -50,7 +50,10 @@ ActiveRecord::Schema.define(version: 20140529002103) do
     t.integer  "away_goals"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "time_tbd"
   end
+
+  add_index "games", ["time_tbd"], name: "index_games_on_time_tbd"
 
   create_table "leagues", force: true do |t|
     t.string   "name"
