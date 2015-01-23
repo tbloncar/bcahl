@@ -615,10 +615,9 @@ body {
 }
 
 .season-roster {
-	width: 24.3%;
-	margin: 0 0.6% 10px 0;
-	float: left;
 	border: 1px solid #ddd;
+  margin-bottom: 20px;
+
 	&:nth-of-type(4n) {
 		margin-right: 0;
 	}

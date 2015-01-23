@@ -82,16 +82,20 @@
 				</table>
 		  </div>
 		  <div id="tabs-3" class="season-tab">
-		  	<% @season.rosters.each do |roster| %>
-		    	<div class="ui-container season-roster">
-		    		<h3><%= roster.team_name %></h3>
-		    		<ul>
-		    		<% roster.players.each do |player| %>
-		    			<li><%= player.full_name %></li>
-		    		<% end %>
-		    		</ul>
-		    	</div>
-		    <% end %>
+        <div class="row">
+          <% @season.rosters.each do |roster| %>
+            <div class="span3">
+              <div class="ui-container season-roster">
+                <h3><%= roster.team_name %></h3>
+                <ul>
+                <% roster.players.each do |player| %>
+                  <li><%= player.full_name %></li>
+                <% end %>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+        </div>
 		  </div>
 		</div>
 	</div>

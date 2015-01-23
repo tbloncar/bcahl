@@ -11,7 +11,7 @@ class Roster < ActiveRecord::Base
 	scope :standings, -> { order(points: :desc) }
 
 	def games_played
-		wins + losses + ot_losses
+		wins + losses + ot_losses + ties
 	end
 
 	def games
