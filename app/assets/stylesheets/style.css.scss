@@ -278,6 +278,11 @@ body {
     float: left;
     margin-bottom: 0;  
     width: 88%;
+    
+    a {
+      color: #333;
+      text-decoration: underline;
+    }
   }
 
   .date {
