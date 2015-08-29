@@ -2,8 +2,8 @@
   <div class="row">
     <div class="span12">
       <div class="home-bulletin-container">
-        <p><span class="date"><%= @bulletin.updated_at.strftime("%b %-d, %Y") %></span>
-        <%= @bulletin.message %></p>
+        <span class="date"><%= @bulletin.updated_at.strftime("%b %-d, %Y") %></span>
+        <p><%= @bulletin.message.html_safe %></p>
       </div>
     </div>
   </div>

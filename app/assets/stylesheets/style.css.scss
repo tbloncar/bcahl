@@ -270,17 +270,23 @@ body {
   background: #f8f8f8;
   border: 3px solid #fff;
   margin-top: 20px;
+  overflow: auto;
   padding: 10px;
 
   p {
     color: #777;
+    float: left;
     margin-bottom: 0;  
+    width: 88%;
   }
 
   .date {
     background: #ddd; 
-    margin-right: 8px;
-    padding: 5px 10px;
+    float: left;
+    margin-right: 12px;
+    padding: 5px 0;
+    text-align: center;
+    width: 10%;
   }
 }
 
