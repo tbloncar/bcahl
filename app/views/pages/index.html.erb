@@ -12,37 +12,37 @@
   <%= image_tag "https://s3.amazonaws.com/bcahl/assets/featured.jpg", class: "home-featured-image" %>
 </div>
 <div class="row">
-	<div class="span4 home-third">
-		<h2 class="home-third-header">Upcoming Events</h2>
-		<p class="home-third-content">
-			Upcoming league events.
-		</p>
-		<% @upcoming_events.each do |event| %>
-			<div class="home-third-list">
-				<h3><%= event.name_date_and_time %></h3>
-			</div> 
-		<% end %>
-	</div>
-	<div class="span4 home-third">
-		<h2 class="home-third-header">Upcoming Games</h2>
-		<p class="home-third-content">
-			A glance at upcoming games in our league.
-		</p>
-		<% @upcoming_games.each do |game| %>
+  <div class="span4 home-third">
+    <h2 class="home-third-header">Upcoming Events</h2>
+    <p class="home-third-content">
+      Upcoming league events.
+    </p>
+    <% @upcoming_events.each do |event| %>
       <div class="home-third-list">
-				<h3><%= game.name_date_and_time %></h3>
-			</div>
-		<% end %>
-	</div>
-	<div class="span4 home-third">
-		<h2 class="home-third-header">Recent Scores</h2>
-		<p class="home-third-content">
-			Recent scores from around the league.
-		</p>
-		<% @recent_games.each do |game| %>
-			<div class="home-third-list">
-				<h3><%= game.score_summary %></h3>
-			</div>
-		<% end %>
-	</div>
+        <h3><%= event.name_date_and_time %></h3>
+      </div>
+    <% end %>
+  </div>
+  <div class="span4 home-third">
+    <h2 class="home-third-header">Upcoming Games</h2>
+    <p class="home-third-content">
+      A glance at upcoming games in our league.
+    </p>
+    <% @upcoming_games.each do |game| %>
+      <div class="home-third-list">
+        <h3><%= game.name_date_and_time %></h3>
+      </div>
+    <% end %>
+  </div>
+  <div class="span4 home-third">
+    <h2 class="home-third-header">Recent Scores</h2>
+    <p class="home-third-content">
+      Recent scores from around the league.
+    </p>
+    <% @recent_games.each do |game| %>
+      <div class="home-third-list">
+        <h3><%= game.score_summary %></h3>
+      </div>
+    <% end %>
+  </div>
 </div>

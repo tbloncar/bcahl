@@ -1,87 +1,87 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1>
-				<%= "#{@season.name_with_league}" %>
-				<% if current_user %>
-					<span class="season-status">
-						-<% if @season.active %>
-							<span class="season-active">Active</span>
-						<% else %>
-							<span class="season-inactive">Inactive</span>
-						<% end %>
-					</span>
-				<% end %>
-			</h1>
-			<div class="manage-resource-options">
-				<% if current_user %>
-					<%= link_to "Edit Season", edit_season_url(@season.league.path, @season.path), class: "manage-resource-option edit-option" %>
-				<% end %>
-			</div>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1>
+        <%= "#{@season.name_with_league}" %>
+        <% if current_user %>
+          <span class="season-status">
+            -<% if @season.active %>
+              <span class="season-active">Active</span>
+            <% else %>
+              <span class="season-inactive">Inactive</span>
+            <% end %>
+          </span>
+        <% end %>
+      </h1>
+      <div class="manage-resource-options">
+        <% if current_user %>
+          <%= link_to "Edit Season", edit_season_url(@season.league.path, @season.path), class: "manage-resource-option edit-option" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<div id="season-tabs">
-		  <ul>
-		    <li class="clickable-tab"><a href="#tabs-1">Standings</a></li>
-		    <li class="clickable-tab"><a href="#tabs-2">Schedule</a></li>
-		    <li class="clickable-tab"><a href="#tabs-3">Rosters</a></li>
-		  </ul>
-		  <div id="tabs-1" class="season-tab">
-		    <table class="team-roster ui-container">
-					<thead>
-						<th>Team</th>
-						<th>Games Played</th>
-						<th>Wins</th>
-						<th>Losses</th>
-						<th>Ties</th>
-						<th>OT</th>
-						<th>Points</th>
-						<th>GF</th>
-						<th>GA</th>
-					</thead>
-					<tbody>
-						<% @season.rosters.standings.each do |roster| %>
-							<tr>
-								<td><%= link_to roster.team.name, roster_url(roster.season.league.path, roster.season.path, roster.team.path) %></td>
-								<td><%= roster.games_played %></td>
-								<td><%= roster.wins %></td>
-								<td><%= roster.losses %></td>
-								<td><%= roster.ties %></td>
-								<td><%= roster.ot_losses %></td>
-								<td><%= roster.points %></td>
-								<td><%= roster.goals_for %></td>
-								<td><%= roster.goals_against %></td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-		  </div>
-		  <div id="tabs-2" class="season-tab">
-		  	<table class="season-schedule team-roster ui-container">
-		  		<thead>
-		  			<th>Date</th>
-						<th>Time</th>
-						<th>Home</th>
-						<th>Away</th>
-						<th>Result</th>
-					</thead>
-					<tbody>
-						<% @season.games.each do |game| %>
-							<tr>
-								<td><%= game.date %></td>
-								<td><%= game.time %></td>
-								<td><%= game.home_team_name %></td>
-								<td><%= game.away_team_name %></td>
-								<td><%= game.print_result %></td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-		  </div>
-		  <div id="tabs-3" class="season-tab">
+  <div class="span12 content-area">
+    <div id="season-tabs">
+      <ul>
+        <li class="clickable-tab"><a href="#tabs-1">Standings</a></li>
+        <li class="clickable-tab"><a href="#tabs-2">Schedule</a></li>
+        <li class="clickable-tab"><a href="#tabs-3">Rosters</a></li>
+      </ul>
+      <div id="tabs-1" class="season-tab">
+        <table class="team-roster ui-container">
+          <thead>
+            <th>Team</th>
+            <th>Games Played</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Ties</th>
+            <th>OT</th>
+            <th>Points</th>
+            <th>GF</th>
+            <th>GA</th>
+          </thead>
+          <tbody>
+            <% @season.rosters.standings.each do |roster| %>
+              <tr>
+                <td><%= link_to roster.team.name, roster_url(roster.season.league.path, roster.season.path, roster.team.path) %></td>
+                <td><%= roster.games_played %></td>
+                <td><%= roster.wins %></td>
+                <td><%= roster.losses %></td>
+                <td><%= roster.ties %></td>
+                <td><%= roster.ot_losses %></td>
+                <td><%= roster.points %></td>
+                <td><%= roster.goals_for %></td>
+                <td><%= roster.goals_against %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div id="tabs-2" class="season-tab">
+        <table class="season-schedule team-roster ui-container">
+          <thead>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Home</th>
+            <th>Away</th>
+            <th>Result</th>
+          </thead>
+          <tbody>
+            <% @season.games.each do |game| %>
+              <tr>
+                <td><%= game.date %></td>
+                <td><%= game.time %></td>
+                <td><%= game.home_team_name %></td>
+                <td><%= game.away_team_name %></td>
+                <td><%= game.print_result %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div id="tabs-3" class="season-tab">
         <div class="row">
           <% @season.rosters.each do |roster| %>
             <div class="span3">
@@ -96,7 +96,7 @@
             </div>
           <% end %>
         </div>
-		  </div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>

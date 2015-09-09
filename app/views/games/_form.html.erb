@@ -1,25 +1,25 @@
 <%= form_for @game, url: form_action, method: form_method, class: "main-form-type" do |f| %>
-	<div class="form-field">
-		<%= f.label :home_id, "Home Team" %>
-		<%= f.collection_select :home_id, season.rosters, :id, :team_name, prompt: "Select Home Team" %>
-	</div>
-	<div class="form-field">
-		<%= f.label :away_id, "Away Team" %>
-		<%= f.collection_select :away_id, season.rosters, :id, :team_name, prompt: "Select Away Team" %>
-	</div>
-	<div class="form-field">
-		<%= f.label :date_and_time, "Date and Time" %>
-		<%= f.datetime_select :date_and_time, required: true, ampm: true, start_year: 2013, order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' } %>
-	</div>
+  <div class="form-field">
+    <%= f.label :home_id, "Home Team" %>
+    <%= f.collection_select :home_id, season.rosters, :id, :team_name, prompt: "Select Home Team" %>
+  </div>
+  <div class="form-field">
+    <%= f.label :away_id, "Away Team" %>
+    <%= f.collection_select :away_id, season.rosters, :id, :team_name, prompt: "Select Away Team" %>
+  </div>
+  <div class="form-field">
+    <%= f.label :date_and_time, "Date and Time" %>
+    <%= f.datetime_select :date_and_time, required: true, ampm: true, start_year: 2013, order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' } %>
+  </div>
   <div class="form-field">
     <label class="checkbox">
       <%= f.check_box :time_tbd %> Time TBD
     </label>
   </div>
-	<div class="form-field">
-		<%= f.hidden_field :season_id, value: season.id %>
-	</div>
-	<div class="form-field">
-		<%= f.submit form_button %>
-	</div>
+  <div class="form-field">
+    <%= f.hidden_field :season_id, value: season.id %>
+  </div>
+  <div class="form-field">
+    <%= f.submit form_button %>
+  </div>
 <% end %>

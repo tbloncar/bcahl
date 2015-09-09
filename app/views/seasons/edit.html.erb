@@ -1,72 +1,72 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1>Manage Season: <%= @season.league.name %> - <%= @season.name %></h1>
-			<div class="manage-resource-options">
-				<%= link_to "Back to #{@season.league.name}", edit_league_url(@season.league.path), class: "manage-resource-option edit-option" %>
-				<%= link_to "View Season", season_url(@season.league.path, @season.path), class: "manage-resource-option view-option" %>
-				<% if @season.active %>
-					<%= link_to "Deactivate Season", deactivate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option deactivate-option" %>
-				<% else %>
-					<%= link_to "Activate Season", activate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option activate-option" %>
-				<% end %>
-				<%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete, class: "manage-resource-option delete-option" %>
-			</div>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1>Manage Season: <%= @season.league.name %> - <%= @season.name %></h1>
+      <div class="manage-resource-options">
+        <%= link_to "Back to #{@season.league.name}", edit_league_url(@season.league.path), class: "manage-resource-option edit-option" %>
+        <%= link_to "View Season", season_url(@season.league.path, @season.path), class: "manage-resource-option view-option" %>
+        <% if @season.active %>
+          <%= link_to "Deactivate Season", deactivate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option deactivate-option" %>
+        <% else %>
+          <%= link_to "Activate Season", activate_season_url(@season.league.path, @season.path), method: :patch, class: "manage-resource-option activate-option" %>
+        <% end %>
+        <%= link_to "Delete Season", season_url(@season.league.path, @season.path), method: :delete, class: "manage-resource-option delete-option" %>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<div class="manage-row-header">
-			<h2>Manage Schedule</h2>
-		</div>
-		<table class="ui-container season-schedule team-roster">
-			<thead>
-				<th>Date</th>
-				<th>Time</th>
-				<th>Home</th>
-				<th>Away</th>
-				<th>Edit</th>
-				<th>Score</th>
-				<th>Remove</th>
-			</thead>
-			<tbody>
-				<% @season.games.each do |game| %>
-					<tr>
-						<td><%= game.date %></td>
-						<td><%= game.time %></td>
-						<td><%= game.home_team_name %></td>
-						<td><%= game.away_team_name %></td>
-						<td><%= link_to "Edit Game", edit_game_url(game.id) %></td>
-						<td><%= link_to (game.scored? ? "Update Score" : "Score Game"), score_game_url(game.id) %></td>
-						<td><%= link_to "Remove Game", game_url(game.id), method: :delete %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<div class="manage-resource-tools">
-			<%= link_to "Add Game to Schedule", new_game_url(@season.league.path, @season.path), class: "manage-resource-tool" %>
-		</div>
-	</div>
+  <div class="span12 content-area">
+    <div class="manage-row-header">
+      <h2>Manage Schedule</h2>
+    </div>
+    <table class="ui-container season-schedule team-roster">
+      <thead>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Home</th>
+        <th>Away</th>
+        <th>Edit</th>
+        <th>Score</th>
+        <th>Remove</th>
+      </thead>
+      <tbody>
+        <% @season.games.each do |game| %>
+          <tr>
+            <td><%= game.date %></td>
+            <td><%= game.time %></td>
+            <td><%= game.home_team_name %></td>
+            <td><%= game.away_team_name %></td>
+            <td><%= link_to "Edit Game", edit_game_url(game.id) %></td>
+            <td><%= link_to (game.scored? ? "Update Score" : "Score Game"), score_game_url(game.id) %></td>
+            <td><%= link_to "Remove Game", game_url(game.id), method: :delete %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="manage-resource-tools">
+      <%= link_to "Add Game to Schedule", new_game_url(@season.league.path, @season.path), class: "manage-resource-tool" %>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12">
-		<div class="manage-row-header">
-			<h2>Manage Rosters</h2>
-		</div>
-		<div class="manage-row-options">
-			<% @season.rosters.each do |roster| %>
-				<a href="<%= edit_roster_url(@season.league.path, @season.path, roster.team.path) %>" class="manage-row-edit manage-row-option">
-					<h3><%= roster.team.name %></h3>
-				</a>
-			<% end %>
-		</div>
-		<div class="manage-resource-tools">
-			<%= form_tag rosters_url do %>
-				<%= text_field_tag :team_name, nil, placeholder: "Enter Team Name", data: { autocomplete_source: teams_url } %>
-				<%= hidden_field_tag :season_id, @season.id %>
-				<%= submit_tag "Add Roster", class: "manage-resource-tool" %>
-			<% end %>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="manage-row-header">
+      <h2>Manage Rosters</h2>
+    </div>
+    <div class="manage-row-options">
+      <% @season.rosters.each do |roster| %>
+        <a href="<%= edit_roster_url(@season.league.path, @season.path, roster.team.path) %>" class="manage-row-edit manage-row-option">
+          <h3><%= roster.team.name %></h3>
+        </a>
+      <% end %>
+    </div>
+    <div class="manage-resource-tools">
+      <%= form_tag rosters_url do %>
+        <%= text_field_tag :team_name, nil, placeholder: "Enter Team Name", data: { autocomplete_source: teams_url } %>
+        <%= hidden_field_tag :season_id, @season.id %>
+        <%= submit_tag "Add Roster", class: "manage-resource-tool" %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,69 +1,69 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1><%= @roster.team.name %>: <%= @roster.season.league.name %> - <%= @roster.season.name %></h1>
-			<div class="breadcrumbs">
-				<%= link_to @roster.season.name_with_league, season_url(@roster.season.league.path, @roster.season.path) %> > <%= @roster.team_name %>
-			</div>
-			<% if current_user %>
-				<div class="manage-resource-options">
-					<%= link_to "Edit Roster", edit_roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option edit-option" %>
-				</div>
-			<% end %>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1><%= @roster.team.name %>: <%= @roster.season.league.name %> - <%= @roster.season.name %></h1>
+      <div class="breadcrumbs">
+        <%= link_to @roster.season.name_with_league, season_url(@roster.season.league.path, @roster.season.path) %> > <%= @roster.team_name %>
+      </div>
+      <% if current_user %>
+        <div class="manage-resource-options">
+          <%= link_to "Edit Roster", edit_roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option edit-option" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<div id="season-tabs">
-			  <ul>
-			    <li class="clickable-tab"><a href="#tabs-1">Schedule</a></li>
-			    <li class="clickable-tab"><a href="#tabs-2">Roster</a></li>
-			  </ul>
-			  <div id="tabs-1" class="season-tab">
-			  	<table class="season-schedule team-roster ui-container">
-			  		<thead>
-			  			<th>Date</th>
-							<th>Time</th>
-							<th>Home</th>
-							<th>Away</th>
-							<th>Result</th>
-						</thead>
-						<tbody>
-							<% @roster.games.each do |game| %>
-								<tr>
-									<td><%= game.date %></td>
-									<td><%= game.time %></td>
-									<td><%= game.home_team_name %></td>
-									<td><%= game.away_team_name %></td>
-									<td><%= game.print_result %></td>
-								</tr>
-							<% end %>
-						</tbody>
-					</table>
-			  </div>
-			  <div id="tabs-2" class="season-tab">
-					<table class="team-roster ui-container">
-						<thead>
-							<th>Name</th>
-							<th>Goals</th>
-							<th>Assists</th>
-							<th>Points</th>
-							<th>PIM</th>
-						</thead>
-						<tbody>
-							<% @roster.roster_spots.each do |roster_spot| %>
-								<tr>
-									<td><%= roster_spot.player.full_name %></td>
-									<td><%= roster_spot.goals %></td>
-									<td><%= roster_spot.assists %></td>
-									<td><%= roster_spot.points %></td>
-									<td><%= roster_spot.pim %></td>
-								</tr>
-							<% end %>
-						</tbody>
-					</table>
-				</div>
-		</div>
-	</div>
+  <div class="span12 content-area">
+    <div id="season-tabs">
+        <ul>
+          <li class="clickable-tab"><a href="#tabs-1">Schedule</a></li>
+          <li class="clickable-tab"><a href="#tabs-2">Roster</a></li>
+        </ul>
+        <div id="tabs-1" class="season-tab">
+          <table class="season-schedule team-roster ui-container">
+            <thead>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Home</th>
+              <th>Away</th>
+              <th>Result</th>
+            </thead>
+            <tbody>
+              <% @roster.games.each do |game| %>
+                <tr>
+                  <td><%= game.date %></td>
+                  <td><%= game.time %></td>
+                  <td><%= game.home_team_name %></td>
+                  <td><%= game.away_team_name %></td>
+                  <td><%= game.print_result %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div id="tabs-2" class="season-tab">
+          <table class="team-roster ui-container">
+            <thead>
+              <th>Name</th>
+              <th>Goals</th>
+              <th>Assists</th>
+              <th>Points</th>
+              <th>PIM</th>
+            </thead>
+            <tbody>
+              <% @roster.roster_spots.each do |roster_spot| %>
+                <tr>
+                  <td><%= roster_spot.player.full_name %></td>
+                  <td><%= roster_spot.goals %></td>
+                  <td><%= roster_spot.assists %></td>
+                  <td><%= roster_spot.points %></td>
+                  <td><%= roster_spot.pim %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
 </div>

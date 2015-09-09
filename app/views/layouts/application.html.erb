@@ -3,13 +3,13 @@
 <head>
   <title><%= @title %></title>
   <% if @meta_description %>
-  	<meta name="description" content="<%= @meta_description %>">
+    <meta name="description" content="<%= @meta_description %>">
   <% end %>
   <% if @robots %>
-  	<meta name="robots" content="<%= @robots %>">
+    <meta name="robots" content="<%= @robots %>">
   <% end %>
   <% if @canonical %>
-  	<link rel="canonical" href="<%= @canonical %>">
+    <link rel="canonical" href="<%= @canonical %>">
   <% end %>
   <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -17,79 +17,79 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <% if Rails.env.production? %>
-	  <script type="text/javascript">
+    <script type="text/javascript">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-26007828-7']);
-	  _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26007828-7']);
+    _gaq.push(['_trackPageview']);
 
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-		</script>
-	<% end %>
+    </script>
+  <% end %>
 </head>
 <body>
-	<% if signed_in? %>
-		<header class="admin-header">
-			<div class="container">
-				<div class="row">
-					<div class="span12">
-						<nav class="admin-nav-left">
-							<%= link_to "Add Player", new_player_url, class: "manage-resource-tool" %>
-							<%= link_to "Add Team", new_team_url, class: "manage-resource-tool" %>
-							<%= link_to "Add League", new_league_url, class: "manage-resource-tool" %>
-							<%= link_to "Add Season", new_season_url, class: "manage-resource-tool" %>
-							<%= link_to "Add Event", new_event_url, class: "manage-resource-tool" %>
-							<%= link_to "Add Gallery", new_gallery_url, class: "manage-resource-tool" %>
-						</nav>
-						<nav class="admin-nav-right">
-							<%= link_to "Dashboard", user_url(current_user.path), class: "manage-resource-tool" %>
-							<%= link_to "Sign Out", session_url, method: "delete", class: "manage-resource-tool" %>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
-	<% end %>
-	<header class="main-header">
-		<div class="container">
-			<div class="row">
-				<div class="span12">
-					<a class="main-logo" href="/">Beaver County Adult Hockey League</a>
-					<nav class="main-nav">
-						<%= link_to "Home", root_url %>
-						<%= link_to "Current Seasons", seasons_url %>
-						<%= link_to "League Calendar", calendar_url %>
-						<%= link_to "Photos", galleries_url %>
-						<%= link_to "About", "/about" %>
-						<%= link_to "Contact", "/contact" %>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<% flash.each do |name, msg| %>
-					<div class="flash-message flash-message-<%= name %>">
-						<p class="flash-message-inner">
-							<%= msg %>
-							<span class="flash-message-fade">&#x2718;</span>
-						</p>
-					</div>
-				<% end %>
-			</div>
-		</div>
-		<%= yield %>
-		<footer class="main-footer">
-			<span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %></span>
-		</footer>
-	</div>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <% if signed_in? %>
+    <header class="admin-header">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <nav class="admin-nav-left">
+              <%= link_to "Add Player", new_player_url, class: "manage-resource-tool" %>
+              <%= link_to "Add Team", new_team_url, class: "manage-resource-tool" %>
+              <%= link_to "Add League", new_league_url, class: "manage-resource-tool" %>
+              <%= link_to "Add Season", new_season_url, class: "manage-resource-tool" %>
+              <%= link_to "Add Event", new_event_url, class: "manage-resource-tool" %>
+              <%= link_to "Add Gallery", new_gallery_url, class: "manage-resource-tool" %>
+            </nav>
+            <nav class="admin-nav-right">
+              <%= link_to "Dashboard", user_url(current_user.path), class: "manage-resource-tool" %>
+              <%= link_to "Sign Out", session_url, method: "delete", class: "manage-resource-tool" %>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+  <% end %>
+  <header class="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <a class="main-logo" href="/">Beaver County Adult Hockey League</a>
+          <nav class="main-nav">
+            <%= link_to "Home", root_url %>
+            <%= link_to "Current Seasons", seasons_url %>
+            <%= link_to "League Calendar", calendar_url %>
+            <%= link_to "Photos", galleries_url %>
+            <%= link_to "About", "/about" %>
+            <%= link_to "Contact", "/contact" %>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <% flash.each do |name, msg| %>
+          <div class="flash-message flash-message-<%= name %>">
+            <p class="flash-message-inner">
+              <%= msg %>
+              <span class="flash-message-fade">&#x2718;</span>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= yield %>
+    <footer class="main-footer">
+      <span>Beaver County Adult Hockey League - &copy; <%= Time.now.year %></span>
+    </footer>
+  </div>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_under_construction
-  	redirect_to "/under-construction" if current_user.try(:email) != ENV['SUPER_ADMIN_EMAIL'] && Rails.env.production?
+    redirect_to "/under-construction" if current_user.try(:email) != ENV['SUPER_ADMIN_EMAIL'] && Rails.env.production?
   end
 end

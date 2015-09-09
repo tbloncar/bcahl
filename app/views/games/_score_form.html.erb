@@ -1,17 +1,17 @@
 <%= form_for @game, url: form_action, method: form_method, class: "main-form-type" do |f| %>
-	<div class="form-field">
-		<%= f.label :home_goals, "Goals for #{@game.home_team_name}" %>
-		<%= f.number_field :home_goals %>
-	</div>
-	<div class="form-field">
-		<%= f.label :away_goals, "Goals for #{@game.away_team_name}" %>
-		<%= f.number_field :away_goals %>
-	</div>
-	<div class="form-field">
-		<%= f.label :ot, "Overtime?" %>
-		<%= f.select :ot, { "No" => false, "Yes" => true} %>
-	</div>
-	<div class="form-field">
-		<%= f.submit form_button %>
-	</div>
+  <div class="form-field">
+    <%= f.label :home_goals, "Goals for #{@game.home_team_name}" %>
+    <%= f.number_field :home_goals %>
+  </div>
+  <div class="form-field">
+    <%= f.label :away_goals, "Goals for #{@game.away_team_name}" %>
+    <%= f.number_field :away_goals %>
+  </div>
+  <div class="form-field">
+    <%= f.label :ot, "Overtime?" %>
+    <%= f.select :ot, { "No" => false, "Yes" => true} %>
+  </div>
+  <div class="form-field">
+    <%= f.submit form_button %>
+  </div>
 <% end %>

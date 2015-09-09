@@ -1,9 +1,9 @@
 <%= form_for @league, url: form_action, method: form_method, class: "main-form-type" do |f| %>
-	<div class="form-field">
-		<%= f.label :name %>
-		<%= f.text_field :name, required: true, placeholder: "A League" %>
-	</div>
-	<div class="form-field">
-		<%= f.submit form_button %>
-	</div>
+  <div class="form-field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "A League" %>
+  </div>
+  <div class="form-field">
+    <%= f.submit form_button %>
+  </div>
 <% end %>

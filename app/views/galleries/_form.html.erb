@@ -1,21 +1,21 @@
 <%= form_for @gallery, class: "main-form-type" do |f| %>
-	<div class="form-field">
-		<%= f.label :name %>
-		<%= f.text_field :name, required: true %>
-	</div>
-	<div class="form-field">
-		<%= f.label :description %>
-		<%= f.text_area :description %>
-	</div>
-	<div class="form-field">
-		<%= f.label :date_start, "Start Date" %>
-		<%= f.date_field :date_start, required: true %>
-	</div>
-	<div class="form-field">
-		<%= f.label :date_end, "End Date" %>
-		<%= f.date_field :date_end, required: true %>
-	</div>
-	<div class="form-field">
-		<%= f.submit "#{action} Gallery" %>
-	</div>
+  <div class="form-field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div class="form-field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="form-field">
+    <%= f.label :date_start, "Start Date" %>
+    <%= f.date_field :date_start, required: true %>
+  </div>
+  <div class="form-field">
+    <%= f.label :date_end, "End Date" %>
+    <%= f.date_field :date_end, required: true %>
+  </div>
+  <div class="form-field">
+    <%= f.submit "#{action} Gallery" %>
+  </div>
 <% end %>

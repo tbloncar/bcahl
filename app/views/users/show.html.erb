@@ -1,19 +1,19 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1>Welcome, <%= @user.full_name %>!</h1>
-			<p class="page-header-info">Manage leagues, seasons, games, etc. from this page.</p>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1>Welcome, <%= @user.full_name %>!</h1>
+      <p class="page-header-info">Manage leagues, seasons, games, etc. from this page.</p>
+    </div>
+  </div>
 </div>
 
 <div class="row">
-	<div class="span12 manage-row-header">
-		<h2>Manage Bulletin</h2>
-	</div>
+  <div class="span12 manage-row-header">
+    <h2>Manage Bulletin</h2>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-resource-container">
+  <div class="span12 manage-resource-container">
     <%= form_for @bulletin do |f| %>
       <div class="manage-row-options">
         <%= f.text_field :message, placeholder: "Update home page bulletin...", style: "width: 50%; font-size: 12px;" %>
@@ -25,120 +25,120 @@
         <%= f.submit "Update Bulletin", class: "manage-resource-tool" %>
       </div>
     <% end %>
-	</div>
+  </div>
 </div>
 
 <div class="row">
-	<div class="span12 manage-row-header">
-		<h2>Manage Active Seasons</h2>
-	</div>
+  <div class="span12 manage-row-header">
+    <h2>Manage Active Seasons</h2>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-resource-container">
-		<div class="manage-row-options">
-			<% @active_seasons.each do |season| %>
-				<a href="<%= edit_season_url(season.league.path, season.path) %>" class="manage-row-option manage-row-edit">
-					<h3><%= season.name_with_league %></h3>
-				</a>
-			<% end %>
-		</div>
-		<div class="manage-resource-tools">
-			<a href="<%= new_season_url %>" class="manage-resource-tool">Add Season</a>
-		</div>
-	</div>
+  <div class="span12 manage-resource-container">
+    <div class="manage-row-options">
+      <% @active_seasons.each do |season| %>
+        <a href="<%= edit_season_url(season.league.path, season.path) %>" class="manage-row-option manage-row-edit">
+          <h3><%= season.name_with_league %></h3>
+        </a>
+      <% end %>
+    </div>
+    <div class="manage-resource-tools">
+      <a href="<%= new_season_url %>" class="manage-resource-tool">Add Season</a>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-header">
-		<h2>Manage Leagues</h2>
-	</div>
+  <div class="span12 manage-row-header">
+    <h2>Manage Leagues</h2>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-resource-container">
-		<div class="manage-row-options">
-			<% @leagues.each do |league| %>
-				<a href="<%= edit_league_url(league.path) %>" class="manage-row-option manage-row-edit">
-					<h3><%= league.name %></h3>
-				</a>
-			<% end %>
-		</div>
-		<div class="manage-resource-tools">
-			<a href="<%= new_league_url %>" class="manage-resource-tool">Add League</a>
-		</div>
-	</div>
+  <div class="span12 manage-resource-container">
+    <div class="manage-row-options">
+      <% @leagues.each do |league| %>
+        <a href="<%= edit_league_url(league.path) %>" class="manage-row-option manage-row-edit">
+          <h3><%= league.name %></h3>
+        </a>
+      <% end %>
+    </div>
+    <div class="manage-resource-tools">
+      <a href="<%= new_league_url %>" class="manage-resource-tool">Add League</a>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-header">
-		<h2>Manage Teams</h2>
-	</div>
+  <div class="span12 manage-row-header">
+    <h2>Manage Teams</h2>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-resource-container">
-		<div class="manage-row-options">
-			<% @teams.each do |team| %>
-				<a href="<%= edit_team_url(team.path) %>" class="manage-row-option manage-row-edit">
-					<h3><%= team.name %></h3>
-				</a>
-			<% end %>
-		</div>
-		<div class="manage-resource-tools">
-			<a href="<%= new_team_url %>" class="manage-resource-tool">Add Team</a>
-		</div>
-	</div>
+  <div class="span12 manage-resource-container">
+    <div class="manage-row-options">
+      <% @teams.each do |team| %>
+        <a href="<%= edit_team_url(team.path) %>" class="manage-row-option manage-row-edit">
+          <h3><%= team.name %></h3>
+        </a>
+      <% end %>
+    </div>
+    <div class="manage-resource-tools">
+      <a href="<%= new_team_url %>" class="manage-resource-tool">Add Team</a>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-header">
-		<h2>Manage Players</h2>
-	</div>
+  <div class="span12 manage-row-header">
+    <h2>Manage Players</h2>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-resource-container">
-		<div class="manage-row-options">
-			<% @players.each do |player| %>
-				<a href="<%= edit_player_url(player.path) %>" class="manage-row-option manage-row-edit">
-					<h3><%= player.full_name %></h3>
-				</a>
-			<% end %>
-		</div>
-		<div class="manage-resource-tools">
-			<a href="<%= new_player_url %>" class="manage-resource-tool">Add Player</a>
-		</div>
-	</div>
+  <div class="span12 manage-resource-container">
+    <div class="manage-row-options">
+      <% @players.each do |player| %>
+        <a href="<%= edit_player_url(player.path) %>" class="manage-row-option manage-row-edit">
+          <h3><%= player.full_name %></h3>
+        </a>
+      <% end %>
+    </div>
+    <div class="manage-resource-tools">
+      <a href="<%= new_player_url %>" class="manage-resource-tool">Add Player</a>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-header">
-		<h2>Manage Events</h2>
-	</div>
+  <div class="span12 manage-row-header">
+    <h2>Manage Events</h2>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-resource-container">
-		<div class="manage-row-options">
-			<% @events.each do |event| %>
-				<a href="<%= edit_event_url(event.path) %>" class="manage-row-option manage-row-edit">
-					<h3><%= event.name_and_date %></h3>
-				</a>
-			<% end %>
-		</div>
-		<div class="manage-resource-tools">
-			<a href="<%= new_event_url %>" class="manage-resource-tool">Add Event</a>
-		</div>
-	</div>
+  <div class="span12 manage-resource-container">
+    <div class="manage-row-options">
+      <% @events.each do |event| %>
+        <a href="<%= edit_event_url(event.path) %>" class="manage-row-option manage-row-edit">
+          <h3><%= event.name_and_date %></h3>
+        </a>
+      <% end %>
+    </div>
+    <div class="manage-resource-tools">
+      <a href="<%= new_event_url %>" class="manage-resource-tool">Add Event</a>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-row-header">
-		<h2>Manage Galleries</h2>
-	</div>
+  <div class="span12 manage-row-header">
+    <h2>Manage Galleries</h2>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 manage-resource-container">
-		<div class="manage-row-options">
-			<% @galleries.each do |gallery| %>
-				<a href="<%= edit_gallery_url(gallery.id) %>" class="manage-row-option manage-row-edit">
-					<h3><%= gallery.name %></h3>
-				</a>
-			<% end %>
-		</div>
-		<div class="manage-resource-tools">
-			<a href="<%= new_gallery_url %>" class="manage-resource-tool">Add Gallery</a>
-		</div>
-	</div>
+  <div class="span12 manage-resource-container">
+    <div class="manage-row-options">
+      <% @galleries.each do |gallery| %>
+        <a href="<%= edit_gallery_url(gallery.id) %>" class="manage-row-option manage-row-edit">
+          <h3><%= gallery.name %></h3>
+        </a>
+      <% end %>
+    </div>
+    <div class="manage-resource-tools">
+      <a href="<%= new_gallery_url %>" class="manage-resource-tool">Add Gallery</a>
+    </div>
+  </div>
 </div>

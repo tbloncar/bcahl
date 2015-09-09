@@ -1,27 +1,27 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1>Current Seasons</h1>
-			<div class="manage-resource-options">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Current Seasons</h1>
+      <div class="manage-resource-options">
 
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<% @seasons.active.each do |season| %>
-			<a class="ui-container season-summary" href="<%= season_url(season.league.path, season.path) %>">
-				<h3><%= season.name_with_league %></h3>
-				<table class="season-summary-standings">
-					<% season.rosters.standings.each do |roster| %>
-						<tr>
-							<td><%= roster.team_name %></td>
-							<td><%= roster.points %></td>
-						</tr>
-					<% end %>
-				</table>
-			</a>
-		<% end %>
-	</div>
+  <div class="span12 content-area">
+    <% @seasons.active.each do |season| %>
+      <a class="ui-container season-summary" href="<%= season_url(season.league.path, season.path) %>">
+        <h3><%= season.name_with_league %></h3>
+        <table class="season-summary-standings">
+          <% season.rosters.standings.each do |roster| %>
+            <tr>
+              <td><%= roster.team_name %></td>
+              <td><%= roster.points %></td>
+            </tr>
+          <% end %>
+        </table>
+      </a>
+    <% end %>
+  </div>
 </div>

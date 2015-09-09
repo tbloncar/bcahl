@@ -1,16 +1,16 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1><%= @league.name %></h1>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1><%= @league.name %></h1>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<% @league.seasons.each do |season| %>
-			<div class="league-season" id="season-<%= season.id %>">
-				<%= link_to season.name, season_url(@league.path, season.path) %>
-			</div>
-		<% end %>
-	</div>
+  <div class="span12 content-area">
+    <% @league.seasons.each do |season| %>
+      <div class="league-season" id="season-<%= season.id %>">
+        <%= link_to season.name, season_url(@league.path, season.path) %>
+      </div>
+    <% end %>
+  </div>
 </div>

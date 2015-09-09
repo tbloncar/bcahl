@@ -1,27 +1,27 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1><%= @gallery.name_and_date %></h1>
-			<div class="breadcrumbs">
-				<%= link_to "Photo Galleries", galleries_url %> > <%= @gallery.name %>
-			</div>
-			<div class="manage-resource-options">
-				<% if current_user %>
-					<%= link_to "Edit Gallery", edit_gallery_url(@gallery), class: "manage-resource-option edit-option" %>
-				<% end %>
-			</div>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1><%= @gallery.name_and_date %></h1>
+      <div class="breadcrumbs">
+        <%= link_to "Photo Galleries", galleries_url %> > <%= @gallery.name %>
+      </div>
+      <div class="manage-resource-options">
+        <% if current_user %>
+          <%= link_to "Edit Gallery", edit_gallery_url(@gallery), class: "manage-resource-option edit-option" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 photos-container content-area">
-		<% @gallery.photos.each do |photo| %>
-			<div class="photo-container">
-				<%= image_tag photo.photo.url %>
-				<div class="photo-description">
-					<p><%= photo.description %></p>
-				</div>
-			</div>
-		<% end %>
-	</div>
+  <div class="span12 photos-container content-area">
+    <% @gallery.photos.each do |photo| %>
+      <div class="photo-container">
+        <%= image_tag photo.photo.url %>
+        <div class="photo-description">
+          <p><%= photo.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

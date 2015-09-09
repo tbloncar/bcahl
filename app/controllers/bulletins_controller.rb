@@ -1,5 +1,4 @@
 class BulletinsController < ApplicationController
-
   def update
     authorize_action!
     @bulletin = Bulletin.first

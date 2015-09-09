@@ -1,13 +1,13 @@
 <%= form_for @team, url: form_action, method: form_method, class: "main-form-type" do |f| %>
-	<div class="form-field">
-		<%= f.label :name, "Team Name" %>
-		<%= f.text_field :name, required: true %>
-	</div>
-	<div class="form-field">
-		<%= f.label :color, "Color" %>
-		<%= f.select :color, @colors, required: true %>
-	</div>
-	<div class="form-field">
-		<%= f.submit form_button %>
-	</div>
+  <div class="form-field">
+    <%= f.label :name, "Team Name" %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div class="form-field">
+    <%= f.label :color, "Color" %>
+    <%= f.select :color, @colors, required: true %>
+  </div>
+  <div class="form-field">
+    <%= f.submit form_button %>
+  </div>
 <% end %>

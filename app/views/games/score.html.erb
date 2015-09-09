@@ -1,12 +1,12 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1>Update Game Score for <%= @game.season.name_with_league %></h1>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1>Update Game Score for <%= @game.season.name_with_league %></h1>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<%= render 'score_form', form_action: update_score_url, form_method: "patch", form_button: "Update Score", season: @game.season %>
-	</div>
+  <div class="span12 content-area">
+    <%= render 'score_form', form_action: update_score_url, form_method: "patch", form_button: "Update Score", season: @game.season %>
+  </div>
 </div>

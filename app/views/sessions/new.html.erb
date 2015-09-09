@@ -1,24 +1,24 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1>Sign In</h1>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1>Sign In</h1>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<%= form_tag sessions_url, class: "main-form-type" do %>
-			<div class="form-field">
-				<%= label_tag :email, "Email Address" %>
-				<%= email_field_tag :email, nil, required: true %>
-			</div>
-			<div class="form-field">
-				<%= label_tag :password, "Password" %>
-				<%= password_field_tag :password, nil, required: true %>
-			</div>
-			<div class="form-field">
-				<%= submit_tag "Sign In" %>
-			</div>
-		<% end %>
-	</div>
+  <div class="span12 content-area">
+    <%= form_tag sessions_url, class: "main-form-type" do %>
+      <div class="form-field">
+        <%= label_tag :email, "Email Address" %>
+        <%= email_field_tag :email, nil, required: true %>
+      </div>
+      <div class="form-field">
+        <%= label_tag :password, "Password" %>
+        <%= password_field_tag :password, nil, required: true %>
+      </div>
+      <div class="form-field">
+        <%= submit_tag "Sign In" %>
+      </div>
+    <% end %>
+  </div>
 </div>

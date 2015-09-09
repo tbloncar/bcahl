@@ -1,37 +1,37 @@
 <div class="row">
-	<div class="span12">
-		<div class="page-header">
-			<h1>Edit Roster: <%= @roster.team.name %></h1>
-			<div class="manage-resource-options">
-				<%= link_to "View Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option view-option" %>
-				<%= link_to "Back to #{@roster.season.name_with_league}", edit_season_url(@roster.season.league.path, @roster.season.path), class: "manage-resource-option edit-option" %>
-				<%= link_to "Remove Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), method: "delete", class: "manage-resource-option delete-option" %>
-			</div>
-		</div>
-	</div>
+  <div class="span12">
+    <div class="page-header">
+      <h1>Edit Roster: <%= @roster.team.name %></h1>
+      <div class="manage-resource-options">
+        <%= link_to "View Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), class: "manage-resource-option view-option" %>
+        <%= link_to "Back to #{@roster.season.name_with_league}", edit_season_url(@roster.season.league.path, @roster.season.path), class: "manage-resource-option edit-option" %>
+        <%= link_to "Remove Roster", roster_url(@roster.season.league.path, @roster.season.path, @roster.team.path), method: "delete", class: "manage-resource-option delete-option" %>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row">
-	<div class="span12 content-area">
-		<table class="team-roster ui-container">
-			<thead>
-				<th>Name</th>
-				<th>Delete Player</th>
-			</thead>
-			<tbody>
-				<% @roster.roster_spots.each do |roster_spot| %>
-					<tr>
-						<td><%= roster_spot.player.full_name %></td>
-						<td><%= link_to "Remove Player", roster_spot_url(roster_spot.id), method: "delete" %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<div class="manage-resource-tools">
-			<%= form_tag roster_spots_url do %>
-				<%= text_field_tag :player_name, nil, data: { autocomplete_source: players_path } %>
-				<%= hidden_field_tag :roster_id, @roster.id %>
-				<%= submit_tag "Add Player to Roster", class: "manage-resource-tool" %>
-			<% end %>
-		</div>
-	</div>
+  <div class="span12 content-area">
+    <table class="team-roster ui-container">
+      <thead>
+        <th>Name</th>
+        <th>Delete Player</th>
+      </thead>
+      <tbody>
+        <% @roster.roster_spots.each do |roster_spot| %>
+          <tr>
+            <td><%= roster_spot.player.full_name %></td>
+            <td><%= link_to "Remove Player", roster_spot_url(roster_spot.id), method: "delete" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="manage-resource-tools">
+      <%= form_tag roster_spots_url do %>
+        <%= text_field_tag :player_name, nil, data: { autocomplete_source: players_path } %>
+        <%= hidden_field_tag :roster_id, @roster.id %>
+        <%= submit_tag "Add Player to Roster", class: "manage-resource-tool" %>
+      <% end %>
+    </div>
+  </div>
 </div>
