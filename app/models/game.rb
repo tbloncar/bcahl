@@ -14,7 +14,11 @@ class Game < ActiveRecord::Base
 
   default_scope -> { order(date_and_time: :asc) }
   scope :upcoming, -> { where("date_and_time > ?", Date.today).limit(4) }
-  scope :recent, -> { where("date_and_time < ? AND (home_goals > ? OR away_goals > ?)" , Date.today, 0, 0).limit(4) }
+  scope :recent, -> {
+    where("date_and_time < ? AND (home_goals > ? OR away_goals > ?)",
+          Date.today, 0, 0).
+          order(date_and_time: :desc).limit(4)
+  }
 
   def home_and_away_cannot_be_same
     if home_id == away_id
