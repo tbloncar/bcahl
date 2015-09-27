@@ -1,0 +1,90 @@
+<%= form_for @stats, url: form_action, method: form_method, class: "main-form-type" do |f| %>
+  <div class="manage-row-header">
+    <h2>Home Team Statistics - <%= @game.home_roster.team_name %></h2>
+  </div>
+  <div class="manage-resource-container stats-entry-form">
+    <div class="manage-row-options">
+      <% if @stats.home_stats.empty? %>
+        <p>
+          Please roster players for <%= @game.home_roster.team_name %> to add stats.
+        </p>
+      <% else %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Goals</th>
+              <th>Assists</th>
+              <th>PIM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= f.fields_for :home_stats do |fields| %>
+              <tr>
+                <td>
+                  <%= fields.object.roster_spot.player.full_name %>
+                </td>
+                <td>
+                  <%= fields.number_field :goals, class: "form-control" %>
+                </td>
+                <td>
+                  <%= fields.number_field :assists %>
+                </td>
+                <td>
+                  <%= fields.number_field :pim %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-field">
+    <%= f.submit "Update All Statistics" %>
+  </div>
+  <div class="manage-row-header">
+    <h2>Away Team Statistics - <%= @game.away_roster.team_name %></h2>
+  </div>
+  <div class="manage-resource-container stats-entry-form">
+    <div class="manage-row-options">
+      <% if @stats.away_stats.empty? %>
+        <p>
+          Please roster players for <%= @game.home_roster.team_name %> to add stats.
+        </p>
+      <% else %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Goals</th>
+              <th>Assists</th>
+              <th>PIM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= f.fields_for :away_stats do |fields| %>
+              <tr>
+                <td>
+                  <%= fields.object.roster_spot.player.full_name %>
+                </td>
+                <td>
+                  <%= fields.number_field :goals, class: "form-control" %>
+                </td>
+                <td>
+                  <%= fields.number_field :assists %>
+                </td>
+                <td>
+                  <%= fields.number_field :pim %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-field">
+    <%= f.submit "Update All Statistics" %>
+  </div>
+<% end %>

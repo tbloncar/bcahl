@@ -10,6 +10,10 @@ class Roster < ActiveRecord::Base
 
   scope :standings, -> { order(points: :desc) }
 
+  def participations_for_game(game)
+    Participation.where(game: game, roster_spot_id: roster_spots.pluck(:id))
+  end
+
   def games_played
     wins + losses + ot_losses + ties
   end

@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
   include SessionsHelper
 
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :score, :update_score]
+  before_action :set_game, only: [:show, :edit, :update,
+    :destroy, :score, :update_score, :update_stats]
   before_action :set_robots, only: [:new, :edit, :score]
 
   def new
@@ -20,6 +21,8 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
+      Participation.create_records_for_game(@game)
+
       flash[:success] = "New game successfully added."
       redirect_to edit_season_url(@game.season.league.path, @game.season.path)
     else
@@ -48,6 +51,7 @@ class GamesController < ApplicationController
 
   def score
     @title = "Score Game"
+    @stats = Stats.new(@game)
   end
 
   def update_score
@@ -62,6 +66,18 @@ class GamesController < ApplicationController
     end
   end
 
+  def update_stats
+    if home_stats = stats_params[:home_stats_attributes]
+      Participation.update_records(home_stats)
+    end
+
+    if away_stats = stats_params[:away_stats_attributes]
+      Participation.update_records(away_stats)
+    end
+
+    redirect_to score_game_url(@game)
+  end
+
   def destroy
     if @game.destroy
       flash[:success] = "Game successfully deleted."
@@ -73,6 +89,14 @@ class GamesController < ApplicationController
   end
 
   private
+    def stats_params
+      params.require(:stats).permit(home_stats_attributes: [
+        :goals, :assists, :pim, :id
+      ], away_stats_attributes: [
+        :goals, :assists, :pim, :id
+      ])
+    end
+
     def game_params
       params.require(:game).permit(:season_id, :date_and_time,
                                    :ot, :home_id, :away_id,

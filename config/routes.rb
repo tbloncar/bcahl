@@ -64,6 +64,7 @@ Bcahl::Application.routes.draw do
   patch "/games/:game_id" => "games#update"
   get "/games/:game_id/score" => "games#score", as: :score_game
   patch "/games/:game_id/update_score" => "games#update_score", as: :update_score
+  patch "/games/:game_id/update_stats" => "games#update_stats", as: :update_stats
   delete "/games/:game_id" => "games#destroy"
 
   get "/events/new" => "events#new", as: :new_event

@@ -810,3 +810,26 @@ a.photo-container {
 .calendar-event {
   @include blue-gradient-bg;
 }
+
+// ****************************
+// =| Stats Entry Form
+// ****************************
+
+.stats-entry-form {
+  margin-bottom: 20px;
+  overflow: auto;
+
+  table {
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  input[type=text],
+  input[type=number] {
+    width: 50px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}

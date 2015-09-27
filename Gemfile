@@ -27,21 +27,15 @@ gem 'masonry-rails'
 # Use puma for app server
 gem 'puma'
 
-# Use shoulda-matchers for RSpec one-liners
-gem "shoulda-matchers", group: :test
-
-# Use Factory Girl for factories for testing
-gem "factory_girl_rails", "~> 4.0", group: [:development, :test]
-
 # Use LazyLoad JS
 # gem "lazyload-rails"
 
 group :development, :test do
-	# Use rspec for testing
   gem 'rspec-rails', '~> 2.0'
-
-  # Use sqlite3 for development
   gem 'sqlite3'
+  gem "shoulda-matchers"
+  gem "factory_girl_rails", "~> 4.5"
+  gem "database_cleaner"
 end
 
 # Use SCSS for stylesheets

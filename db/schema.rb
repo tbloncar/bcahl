@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829034003) do
+ActiveRecord::Schema.define(version: 20150927000245) do
 
   create_table "bulletins", force: true do |t|
     t.text     "message"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 20140829034003) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "participations", force: true do |t|
+    t.integer  "roster_spot_id"
+    t.integer  "game_id"
+    t.integer  "goals",          default: 0
+    t.integer  "assists",        default: 0
+    t.integer  "pim",            default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "participations", ["roster_spot_id", "game_id"], name: "index_participations_on_roster_spot_id_and_game_id"
 
   create_table "photos", force: true do |t|
     t.string   "photo_file_name"
