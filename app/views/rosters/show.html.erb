@@ -52,7 +52,8 @@
               <th>PIM</th>
             </thead>
             <tbody>
-              <% @roster.roster_spots.each do |roster_spot| %>
+              <% @roster.roster_spots.sort { |a, b|
+                b.points <=> a.points }.each do |roster_spot| %>
                 <tr>
                   <td><%= roster_spot.player.full_name %></td>
                   <td><%= roster_spot.goals %></td>

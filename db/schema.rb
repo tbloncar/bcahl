@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927000245) do
+ActiveRecord::Schema.define(version: 20150927164205) do
 
   create_table "bulletins", force: true do |t|
     t.text     "message"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 20150927000245) do
   create_table "players", force: true do |t|
     t.string   "f_name"
     t.string   "l_name"
-    t.string   "full_name"
     t.string   "email"
     t.string   "path"
     t.datetime "created_at"
@@ -97,9 +96,6 @@ ActiveRecord::Schema.define(version: 20150927000245) do
     t.integer  "player_id"
     t.integer  "roster_id"
     t.boolean  "captain",    default: false
-    t.integer  "goals",      default: 0
-    t.integer  "assists",    default: 0
-    t.integer  "pim",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

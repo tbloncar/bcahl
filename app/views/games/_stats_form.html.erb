@@ -6,7 +6,7 @@
     <div class="manage-row-options">
       <% if @stats.home_stats.empty? %>
         <p>
-          Please roster players for <%= @game.home_roster.team_name %> to add stats.
+          Please add players to the <%= @game.home_roster.team_name %> roster to enter stats.
         </p>
       <% else %>
         <table class="table">
@@ -50,7 +50,7 @@
     <div class="manage-row-options">
       <% if @stats.away_stats.empty? %>
         <p>
-          Please roster players for <%= @game.home_roster.team_name %> to add stats.
+          Please add players to the <%= @game.away_roster.team_name %> roster to enter stats.
         </p>
       <% else %>
         <table class="table">

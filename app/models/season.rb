@@ -10,6 +10,11 @@ class Season < ActiveRecord::Base
 
   scope :active, -> { where(active: true) }
 
+  def point_leaders
+    rosters.includes(:roster_spots).flat_map(&:roster_spots).
+      sort { |a, b| b.points <=> a.points }.take(50)
+  end
+
   def create_url_path
     self.path = name.downcase.gsub(" ", "-").gsub("'", "")
   end

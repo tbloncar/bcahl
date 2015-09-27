@@ -623,6 +623,12 @@ body {
   border-top: 1px solid #eee;
   padding-top: 15px;
   background: transparent;
+
+  .span3 {
+    &:nth-of-type(4n + 1) {
+      clear: both;
+    }
+  }
 }
 
 .season-roster {
@@ -632,6 +638,7 @@ body {
   &:nth-of-type(4n) {
     margin-right: 0;
   }
+
   h3 {
     @include graydient-bg;
     font-size: 12px;
@@ -822,10 +829,16 @@ a.photo-container {
   table {
     margin-bottom: 0;
     width: 100%;
+
+    td {
+      vertical-align: middle;
+    }
   }
 
   input[type=text],
   input[type=number] {
+    height: 100%;
+    margin: auto;
     width: 50px;
   }
 

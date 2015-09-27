@@ -27,7 +27,8 @@
       <ul>
         <li class="clickable-tab"><a href="#tabs-1">Standings</a></li>
         <li class="clickable-tab"><a href="#tabs-2">Schedule</a></li>
-        <li class="clickable-tab"><a href="#tabs-3">Rosters</a></li>
+        <li class="clickable-tab"><a href="#tabs-3">Statistics</a></li>
+        <li class="clickable-tab"><a href="#tabs-4">Rosters</a></li>
       </ul>
       <div id="tabs-1" class="season-tab">
         <table class="team-roster ui-container">
@@ -82,6 +83,30 @@
         </table>
       </div>
       <div id="tabs-3" class="season-tab">
+        <table class="season-stats team-roster ui-container">
+          <thead>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Goals</th>
+            <th>Assists</th>
+            <th>Points</th>
+            <th>PIM</th>
+          </thead>
+          <tbody>
+            <% @season.point_leaders.each do |pl| %>
+              <tr>
+                <td><%= pl.player.full_name %></td>
+                <td><%= pl.roster.team_name %></td>
+                <td><%= pl.goals %></td>
+                <td><%= pl.assists %></td>
+                <td><%= pl.points %></td>
+                <td><%= pl.pim %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div id="tabs-4" class="season-tab">
         <div class="row">
           <% @season.rosters.each do |roster| %>
             <div class="span3">

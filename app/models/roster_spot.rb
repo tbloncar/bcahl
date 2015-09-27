@@ -6,6 +6,10 @@ class RosterSpot < ActiveRecord::Base
 
   validates :player_id, uniqueness: { scope: :roster_id }
 
+  def points
+    goals + assists
+  end
+
   def goals
     participations.pluck(:goals).inject(:+) || 0
   end
@@ -14,7 +18,7 @@ class RosterSpot < ActiveRecord::Base
     participations.pluck(:assists).inject(:+) || 0
   end
 
-  def pims
+  def pim
     participations.pluck(:pim).inject(:+) || 0
   end
 end
