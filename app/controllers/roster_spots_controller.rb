@@ -7,6 +7,14 @@ class RosterSpotsController < ApplicationController
     ).try(:id)
 
     if @roster_spot.player_id && @roster_spot.save
+      # Ensure that each newly rostered player
+      # has a stats entry for all games in the season.
+      Participation.create(
+        @roster_spot.roster.season.games.map do |game|
+          { roster_spot: @roster_spot, game: game }
+        end
+      )
+
       flash[:success] = "#{@roster_spot.player.full_name} successfully added to #{@roster_spot.roster.team.name}."
     else
       flash[:notice] = "Hm. That player either already exists on this roster or is not in our system."
