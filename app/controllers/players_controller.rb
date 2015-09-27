@@ -28,8 +28,12 @@ class PlayersController < ApplicationController
   end
 
   def index
-    @players = Player.order(:f_name).where("f_name like ? or l_name like ?",
-      "%#{params[:term]}%", "%#{params[:term]}%")
+    clause = "lower(f_name) like ? or lower(l_name) like ? "\
+             "or lower(f_name) || ' ' || lower(l_name) like ?"
+    @players = Player.order(:f_name).where(clause,
+                                          "%#{params[:term].downcase}%",
+                                          "%#{params[:term].downcase}%",
+                                          "%#{params[:term].downcase}%")
     respond_to do |format|
       format.html
       format.json { render json: @players.map { |player| player.full_name }}
